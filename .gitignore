@@ -7,3 +7,4 @@
 pubspec.lock
 build/
 node_modules/
+docs/.docusaurus/
