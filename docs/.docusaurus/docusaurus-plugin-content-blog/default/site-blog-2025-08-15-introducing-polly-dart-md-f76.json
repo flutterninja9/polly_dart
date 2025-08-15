@@ -1,5 +1,5 @@
 {
-  "permalink": "/polly_dart/blog/introducing-polly-dart",
+  "permalink": "/blog/introducing-polly-dart",
   "editUrl": "https://github.com/flutterninja9/polly_dart/tree/main/docs/blog/2025-08-15-introducing-polly-dart.md",
   "source": "@site/blog/2025-08-15-introducing-polly-dart.md",
   "title": "Introducing Polly Dart - Resilience for the Dart Ecosystem",
@@ -9,27 +9,27 @@
     {
       "inline": true,
       "label": "dart",
-      "permalink": "/polly_dart/blog/tags/dart"
+      "permalink": "/blog/tags/dart"
     },
     {
       "inline": true,
       "label": "flutter",
-      "permalink": "/polly_dart/blog/tags/flutter"
+      "permalink": "/blog/tags/flutter"
     },
     {
       "inline": true,
       "label": "resilience",
-      "permalink": "/polly_dart/blog/tags/resilience"
+      "permalink": "/blog/tags/resilience"
     },
     {
       "inline": true,
       "label": "reliability",
-      "permalink": "/polly_dart/blog/tags/reliability"
+      "permalink": "/blog/tags/reliability"
     },
     {
       "inline": true,
       "label": "announcement",
-      "permalink": "/polly_dart/blog/tags/announcement"
+      "permalink": "/blog/tags/announcement"
     }
   ],
   "readingTime": 4.5,

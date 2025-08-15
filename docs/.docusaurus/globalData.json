@@ -1,143 +1,147 @@
 {
   "docusaurus-plugin-content-docs": {
     "default": {
-      "path": "/polly_dart/docs",
+      "path": "/",
       "versions": [
         {
           "name": "current",
           "label": "Next",
           "isLast": true,
-          "path": "/polly_dart/docs",
-          "mainDocId": "intro",
+          "path": "/",
+          "mainDocId": "index",
           "docs": [
             {
               "id": "advanced/combining-strategies",
-              "path": "/polly_dart/docs/advanced/combining-strategies",
+              "path": "/advanced/combining-strategies",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "advanced/custom-strategies",
-              "path": "/polly_dart/docs/advanced/custom-strategies",
+              "path": "/advanced/custom-strategies",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "advanced/monitoring",
-              "path": "/polly_dart/docs/advanced/monitoring",
+              "path": "/advanced/monitoring",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "advanced/testing",
-              "path": "/polly_dart/docs/advanced/testing",
+              "path": "/advanced/testing",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "api/circuit-breaker-strategy",
-              "path": "/polly_dart/docs/api/circuit-breaker-strategy",
+              "path": "/api/circuit-breaker-strategy",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "api/fallback-strategy",
-              "path": "/polly_dart/docs/api/fallback-strategy",
+              "path": "/api/fallback-strategy",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "api/hedging-strategy",
-              "path": "/polly_dart/docs/api/hedging-strategy",
+              "path": "/api/hedging-strategy",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "api/outcome",
-              "path": "/polly_dart/docs/api/outcome",
+              "path": "/api/outcome",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "api/rate-limiter-strategy",
-              "path": "/polly_dart/docs/api/rate-limiter-strategy",
+              "path": "/api/rate-limiter-strategy",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "api/resilience-context",
-              "path": "/polly_dart/docs/api/resilience-context",
+              "path": "/api/resilience-context",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "api/resilience-pipeline",
-              "path": "/polly_dart/docs/api/resilience-pipeline",
+              "path": "/api/resilience-pipeline",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "api/resilience-pipeline-builder",
-              "path": "/polly_dart/docs/api/resilience-pipeline-builder",
+              "path": "/api/resilience-pipeline-builder",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "api/retry-strategy",
-              "path": "/polly_dart/docs/api/retry-strategy",
+              "path": "/api/retry-strategy",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "api/timeout-strategy",
-              "path": "/polly_dart/docs/api/timeout-strategy",
+              "path": "/api/timeout-strategy",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "examples/http-client",
-              "path": "/polly_dart/docs/examples/http-client",
+              "path": "/examples/http-client",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "getting-started/basic-concepts",
-              "path": "/polly_dart/docs/getting-started/basic-concepts",
+              "path": "/getting-started/basic-concepts",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "getting-started/installation",
-              "path": "/polly_dart/docs/getting-started/installation",
+              "path": "/getting-started/installation",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "getting-started/quick-start",
-              "path": "/polly_dart/docs/getting-started/quick-start",
+              "path": "/getting-started/quick-start",
               "sidebar": "tutorialSidebar"
             },
             {
+              "id": "index",
+              "path": "/"
+            },
+            {
               "id": "intro",
-              "path": "/polly_dart/docs/",
+              "path": "/intro",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "strategies/circuit-breaker",
-              "path": "/polly_dart/docs/strategies/circuit-breaker",
+              "path": "/strategies/circuit-breaker",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "strategies/fallback",
-              "path": "/polly_dart/docs/strategies/fallback",
+              "path": "/strategies/fallback",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "strategies/hedging",
-              "path": "/polly_dart/docs/strategies/hedging",
+              "path": "/strategies/hedging",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "strategies/overview",
-              "path": "/polly_dart/docs/strategies/overview",
+              "path": "/strategies/overview",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "strategies/rate-limiter",
-              "path": "/polly_dart/docs/strategies/rate-limiter",
+              "path": "/strategies/rate-limiter",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "strategies/retry",
-              "path": "/polly_dart/docs/strategies/retry",
+              "path": "/strategies/retry",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "strategies/timeout",
-              "path": "/polly_dart/docs/strategies/timeout",
+              "path": "/strategies/timeout",
               "sidebar": "tutorialSidebar"
             }
           ],
@@ -145,7 +149,7 @@
           "sidebars": {
             "tutorialSidebar": {
               "link": {
-                "path": "/polly_dart/docs/",
+                "path": "/intro",
                 "label": "intro"
               }
             }

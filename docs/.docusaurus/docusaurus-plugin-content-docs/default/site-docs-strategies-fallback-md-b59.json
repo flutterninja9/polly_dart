@@ -5,7 +5,7 @@
   "source": "@site/docs/strategies/fallback.md",
   "sourceDirName": "strategies",
   "slug": "/strategies/fallback",
-  "permalink": "/polly_dart/docs/strategies/fallback",
+  "permalink": "/strategies/fallback",
   "draft": false,
   "unlisted": false,
   "editUrl": "https://github.com/flutterninja9/polly_dart/tree/main/docs/docs/strategies/fallback.md",
@@ -18,10 +18,10 @@
   "sidebar": "tutorialSidebar",
   "previous": {
     "title": "Timeout Strategy",
-    "permalink": "/polly_dart/docs/strategies/timeout"
+    "permalink": "/strategies/timeout"
   },
   "next": {
     "title": "Hedging Strategy",
-    "permalink": "/polly_dart/docs/strategies/hedging"
+    "permalink": "/strategies/hedging"
   }
 }

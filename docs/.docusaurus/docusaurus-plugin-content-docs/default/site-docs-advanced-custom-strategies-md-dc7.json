@@ -5,7 +5,7 @@
   "source": "@site/docs/advanced/custom-strategies.md",
   "sourceDirName": "advanced",
   "slug": "/advanced/custom-strategies",
-  "permalink": "/polly_dart/docs/advanced/custom-strategies",
+  "permalink": "/advanced/custom-strategies",
   "draft": false,
   "unlisted": false,
   "editUrl": "https://github.com/flutterninja9/polly_dart/tree/main/docs/docs/advanced/custom-strategies.md",
@@ -18,10 +18,10 @@
   "sidebar": "tutorialSidebar",
   "previous": {
     "title": "Combining Strategies",
-    "permalink": "/polly_dart/docs/advanced/combining-strategies"
+    "permalink": "/advanced/combining-strategies"
   },
   "next": {
     "title": "Monitoring and Observability",
-    "permalink": "/polly_dart/docs/advanced/monitoring"
+    "permalink": "/advanced/monitoring"
   }
 }

@@ -5,7 +5,7 @@
   "source": "@site/docs/api/hedging-strategy.md",
   "sourceDirName": "api",
   "slug": "/api/hedging-strategy",
-  "permalink": "/polly_dart/docs/api/hedging-strategy",
+  "permalink": "/api/hedging-strategy",
   "draft": false,
   "unlisted": false,
   "editUrl": "https://github.com/flutterninja9/polly_dart/tree/main/docs/docs/api/hedging-strategy.md",
@@ -18,10 +18,10 @@
   "sidebar": "tutorialSidebar",
   "previous": {
     "title": "FallbackStrategy",
-    "permalink": "/polly_dart/docs/api/fallback-strategy"
+    "permalink": "/api/fallback-strategy"
   },
   "next": {
     "title": "RateLimiterStrategy",
-    "permalink": "/polly_dart/docs/api/rate-limiter-strategy"
+    "permalink": "/api/rate-limiter-strategy"
   }
 }

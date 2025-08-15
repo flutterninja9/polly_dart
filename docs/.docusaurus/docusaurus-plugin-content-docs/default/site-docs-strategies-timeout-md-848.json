@@ -5,7 +5,7 @@
   "source": "@site/docs/strategies/timeout.md",
   "sourceDirName": "strategies",
   "slug": "/strategies/timeout",
-  "permalink": "/polly_dart/docs/strategies/timeout",
+  "permalink": "/strategies/timeout",
   "draft": false,
   "unlisted": false,
   "editUrl": "https://github.com/flutterninja9/polly_dart/tree/main/docs/docs/strategies/timeout.md",
@@ -18,10 +18,10 @@
   "sidebar": "tutorialSidebar",
   "previous": {
     "title": "Circuit Breaker Strategy",
-    "permalink": "/polly_dart/docs/strategies/circuit-breaker"
+    "permalink": "/strategies/circuit-breaker"
   },
   "next": {
     "title": "Fallback Strategy",
-    "permalink": "/polly_dart/docs/strategies/fallback"
+    "permalink": "/strategies/fallback"
   }
 }

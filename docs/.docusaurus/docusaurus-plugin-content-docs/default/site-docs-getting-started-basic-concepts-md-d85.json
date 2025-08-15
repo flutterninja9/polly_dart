@@ -5,7 +5,7 @@
   "source": "@site/docs/getting-started/basic-concepts.md",
   "sourceDirName": "getting-started",
   "slug": "/getting-started/basic-concepts",
-  "permalink": "/polly_dart/docs/getting-started/basic-concepts",
+  "permalink": "/getting-started/basic-concepts",
   "draft": false,
   "unlisted": false,
   "editUrl": "https://github.com/flutterninja9/polly_dart/tree/main/docs/docs/getting-started/basic-concepts.md",
@@ -18,10 +18,10 @@
   "sidebar": "tutorialSidebar",
   "previous": {
     "title": "Quick Start",
-    "permalink": "/polly_dart/docs/getting-started/quick-start"
+    "permalink": "/getting-started/quick-start"
   },
   "next": {
     "title": "Resilience Strategies Overview",
-    "permalink": "/polly_dart/docs/strategies/overview"
+    "permalink": "/strategies/overview"
   }
 }

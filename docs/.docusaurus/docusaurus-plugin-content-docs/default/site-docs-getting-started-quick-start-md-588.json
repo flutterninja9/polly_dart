@@ -5,7 +5,7 @@
   "source": "@site/docs/getting-started/quick-start.md",
   "sourceDirName": "getting-started",
   "slug": "/getting-started/quick-start",
-  "permalink": "/polly_dart/docs/getting-started/quick-start",
+  "permalink": "/getting-started/quick-start",
   "draft": false,
   "unlisted": false,
   "editUrl": "https://github.com/flutterninja9/polly_dart/tree/main/docs/docs/getting-started/quick-start.md",
@@ -18,10 +18,10 @@
   "sidebar": "tutorialSidebar",
   "previous": {
     "title": "Installation",
-    "permalink": "/polly_dart/docs/getting-started/installation"
+    "permalink": "/getting-started/installation"
   },
   "next": {
     "title": "Basic Concepts",
-    "permalink": "/polly_dart/docs/getting-started/basic-concepts"
+    "permalink": "/getting-started/basic-concepts"
   }
 }

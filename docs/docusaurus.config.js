@@ -46,6 +46,7 @@ const config = {
       ({
         docs: {
           sidebarPath: './sidebars.js',
+          routeBasePath: '/', // Serve the docs at the site's root
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
@@ -112,11 +113,11 @@ const config = {
             items: [
               {
                 label: 'Getting Started',
-                to: '/docs/intro',
+                to: '/intro',
               },
               {
                 label: 'API Reference',
-                to: '/docs/category/api-reference',
+                to: '/api/resilience-pipeline',
               },
             ],
           },

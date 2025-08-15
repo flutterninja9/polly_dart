@@ -5,7 +5,7 @@
   "source": "@site/docs/api/fallback-strategy.md",
   "sourceDirName": "api",
   "slug": "/api/fallback-strategy",
-  "permalink": "/polly_dart/docs/api/fallback-strategy",
+  "permalink": "/api/fallback-strategy",
   "draft": false,
   "unlisted": false,
   "editUrl": "https://github.com/flutterninja9/polly_dart/tree/main/docs/docs/api/fallback-strategy.md",
@@ -18,10 +18,10 @@
   "sidebar": "tutorialSidebar",
   "previous": {
     "title": "TimeoutStrategy",
-    "permalink": "/polly_dart/docs/api/timeout-strategy"
+    "permalink": "/api/timeout-strategy"
   },
   "next": {
     "title": "HedgingStrategy",
-    "permalink": "/polly_dart/docs/api/hedging-strategy"
+    "permalink": "/api/hedging-strategy"
   }
 }

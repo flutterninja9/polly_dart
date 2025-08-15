@@ -1,0 +1,13 @@
+{
+  "type": "mdx",
+  "permalink": "/",
+  "source": "@site/src/pages/index.md",
+  "title": "Polly Dart",
+  "description": "Welcome to Polly Dart!",
+  "frontMatter": {
+    "slug": "/",
+    "title": "Polly Dart",
+    "sidebar_position": 0
+  },
+  "unlisted": false
+}

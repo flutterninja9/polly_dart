@@ -5,7 +5,7 @@
   "source": "@site/docs/api/outcome.md",
   "sourceDirName": "api",
   "slug": "/api/outcome",
-  "permalink": "/polly_dart/docs/api/outcome",
+  "permalink": "/api/outcome",
   "draft": false,
   "unlisted": false,
   "editUrl": "https://github.com/flutterninja9/polly_dart/tree/main/docs/docs/api/outcome.md",
@@ -18,10 +18,10 @@
   "sidebar": "tutorialSidebar",
   "previous": {
     "title": "ResilienceContext",
-    "permalink": "/polly_dart/docs/api/resilience-context"
+    "permalink": "/api/resilience-context"
   },
   "next": {
     "title": "RetryStrategy",
-    "permalink": "/polly_dart/docs/api/retry-strategy"
+    "permalink": "/api/retry-strategy"
   }
 }

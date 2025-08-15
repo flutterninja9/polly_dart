@@ -5,7 +5,7 @@
   "source": "@site/docs/api/resilience-pipeline-builder.md",
   "sourceDirName": "api",
   "slug": "/api/resilience-pipeline-builder",
-  "permalink": "/polly_dart/docs/api/resilience-pipeline-builder",
+  "permalink": "/api/resilience-pipeline-builder",
   "draft": false,
   "unlisted": false,
   "editUrl": "https://github.com/flutterninja9/polly_dart/tree/main/docs/docs/api/resilience-pipeline-builder.md",
@@ -18,10 +18,10 @@
   "sidebar": "tutorialSidebar",
   "previous": {
     "title": "ResiliencePipeline",
-    "permalink": "/polly_dart/docs/api/resilience-pipeline"
+    "permalink": "/api/resilience-pipeline"
   },
   "next": {
     "title": "ResilienceContext",
-    "permalink": "/polly_dart/docs/api/resilience-context"
+    "permalink": "/api/resilience-context"
   }
 }

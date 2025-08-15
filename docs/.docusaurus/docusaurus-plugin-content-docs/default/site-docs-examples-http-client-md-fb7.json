@@ -5,7 +5,7 @@
   "source": "@site/docs/examples/http-client.md",
   "sourceDirName": "examples",
   "slug": "/examples/http-client",
-  "permalink": "/polly_dart/docs/examples/http-client",
+  "permalink": "/examples/http-client",
   "draft": false,
   "unlisted": false,
   "editUrl": "https://github.com/flutterninja9/polly_dart/tree/main/docs/docs/examples/http-client.md",
@@ -18,6 +18,6 @@
   "sidebar": "tutorialSidebar",
   "previous": {
     "title": "RateLimiterStrategy",
-    "permalink": "/polly_dart/docs/api/rate-limiter-strategy"
+    "permalink": "/api/rate-limiter-strategy"
   }
 }

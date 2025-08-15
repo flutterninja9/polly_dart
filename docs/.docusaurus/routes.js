@@ -3,262 +3,267 @@ import ComponentCreator from '@docusaurus/ComponentCreator';
 
 export default [
   {
-    path: '/polly_dart/__docusaurus/debug',
-    component: ComponentCreator('/polly_dart/__docusaurus/debug', '4e5'),
+    path: '/__docusaurus/debug',
+    component: ComponentCreator('/__docusaurus/debug', '5ff'),
     exact: true
   },
   {
-    path: '/polly_dart/__docusaurus/debug/config',
-    component: ComponentCreator('/polly_dart/__docusaurus/debug/config', '1b3'),
+    path: '/__docusaurus/debug/config',
+    component: ComponentCreator('/__docusaurus/debug/config', '5ba'),
     exact: true
   },
   {
-    path: '/polly_dart/__docusaurus/debug/content',
-    component: ComponentCreator('/polly_dart/__docusaurus/debug/content', '5e5'),
+    path: '/__docusaurus/debug/content',
+    component: ComponentCreator('/__docusaurus/debug/content', 'a2b'),
     exact: true
   },
   {
-    path: '/polly_dart/__docusaurus/debug/globalData',
-    component: ComponentCreator('/polly_dart/__docusaurus/debug/globalData', '940'),
+    path: '/__docusaurus/debug/globalData',
+    component: ComponentCreator('/__docusaurus/debug/globalData', 'c3c'),
     exact: true
   },
   {
-    path: '/polly_dart/__docusaurus/debug/metadata',
-    component: ComponentCreator('/polly_dart/__docusaurus/debug/metadata', 'fcf'),
+    path: '/__docusaurus/debug/metadata',
+    component: ComponentCreator('/__docusaurus/debug/metadata', '156'),
     exact: true
   },
   {
-    path: '/polly_dart/__docusaurus/debug/registry',
-    component: ComponentCreator('/polly_dart/__docusaurus/debug/registry', '89d'),
+    path: '/__docusaurus/debug/registry',
+    component: ComponentCreator('/__docusaurus/debug/registry', '88c'),
     exact: true
   },
   {
-    path: '/polly_dart/__docusaurus/debug/routes',
-    component: ComponentCreator('/polly_dart/__docusaurus/debug/routes', '895'),
+    path: '/__docusaurus/debug/routes',
+    component: ComponentCreator('/__docusaurus/debug/routes', '000'),
     exact: true
   },
   {
-    path: '/polly_dart/blog',
-    component: ComponentCreator('/polly_dart/blog', '08c'),
+    path: '/blog',
+    component: ComponentCreator('/blog', 'b9a'),
     exact: true
   },
   {
-    path: '/polly_dart/blog/archive',
-    component: ComponentCreator('/polly_dart/blog/archive', '67d'),
+    path: '/blog/archive',
+    component: ComponentCreator('/blog/archive', '182'),
     exact: true
   },
   {
-    path: '/polly_dart/blog/authors',
-    component: ComponentCreator('/polly_dart/blog/authors', '9ef'),
+    path: '/blog/authors',
+    component: ComponentCreator('/blog/authors', '0b7'),
     exact: true
   },
   {
-    path: '/polly_dart/blog/introducing-polly-dart',
-    component: ComponentCreator('/polly_dart/blog/introducing-polly-dart', '526'),
+    path: '/blog/introducing-polly-dart',
+    component: ComponentCreator('/blog/introducing-polly-dart', '56d'),
     exact: true
   },
   {
-    path: '/polly_dart/blog/tags',
-    component: ComponentCreator('/polly_dart/blog/tags', '550'),
+    path: '/blog/tags',
+    component: ComponentCreator('/blog/tags', '287'),
     exact: true
   },
   {
-    path: '/polly_dart/blog/tags/announcement',
-    component: ComponentCreator('/polly_dart/blog/tags/announcement', 'f48'),
+    path: '/blog/tags/announcement',
+    component: ComponentCreator('/blog/tags/announcement', '724'),
     exact: true
   },
   {
-    path: '/polly_dart/blog/tags/dart',
-    component: ComponentCreator('/polly_dart/blog/tags/dart', 'c21'),
+    path: '/blog/tags/dart',
+    component: ComponentCreator('/blog/tags/dart', '223'),
     exact: true
   },
   {
-    path: '/polly_dart/blog/tags/flutter',
-    component: ComponentCreator('/polly_dart/blog/tags/flutter', 'bb8'),
+    path: '/blog/tags/flutter',
+    component: ComponentCreator('/blog/tags/flutter', '9c3'),
     exact: true
   },
   {
-    path: '/polly_dart/blog/tags/reliability',
-    component: ComponentCreator('/polly_dart/blog/tags/reliability', '560'),
+    path: '/blog/tags/reliability',
+    component: ComponentCreator('/blog/tags/reliability', '6ff'),
     exact: true
   },
   {
-    path: '/polly_dart/blog/tags/resilience',
-    component: ComponentCreator('/polly_dart/blog/tags/resilience', '18b'),
+    path: '/blog/tags/resilience',
+    component: ComponentCreator('/blog/tags/resilience', 'dbd'),
     exact: true
   },
   {
-    path: '/polly_dart/search',
-    component: ComponentCreator('/polly_dart/search', '0f6'),
+    path: '/search',
+    component: ComponentCreator('/search', '5de'),
     exact: true
   },
   {
-    path: '/polly_dart/docs',
-    component: ComponentCreator('/polly_dart/docs', 'd97'),
+    path: '/',
+    component: ComponentCreator('/', '9aa'),
     routes: [
       {
-        path: '/polly_dart/docs',
-        component: ComponentCreator('/polly_dart/docs', '3ab'),
+        path: '/',
+        component: ComponentCreator('/', 'cf9'),
         routes: [
           {
-            path: '/polly_dart/docs',
-            component: ComponentCreator('/polly_dart/docs', '54c'),
+            path: '/',
+            component: ComponentCreator('/', '175'),
             routes: [
               {
-                path: '/polly_dart/docs/',
-                component: ComponentCreator('/polly_dart/docs/', '27d'),
+                path: '/advanced/combining-strategies',
+                component: ComponentCreator('/advanced/combining-strategies', '584'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/polly_dart/docs/advanced/combining-strategies',
-                component: ComponentCreator('/polly_dart/docs/advanced/combining-strategies', '1c3'),
+                path: '/advanced/custom-strategies',
+                component: ComponentCreator('/advanced/custom-strategies', '543'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/polly_dart/docs/advanced/custom-strategies',
-                component: ComponentCreator('/polly_dart/docs/advanced/custom-strategies', '035'),
+                path: '/advanced/monitoring',
+                component: ComponentCreator('/advanced/monitoring', 'dcc'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/polly_dart/docs/advanced/monitoring',
-                component: ComponentCreator('/polly_dart/docs/advanced/monitoring', '87a'),
+                path: '/advanced/testing',
+                component: ComponentCreator('/advanced/testing', '672'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/polly_dart/docs/advanced/testing',
-                component: ComponentCreator('/polly_dart/docs/advanced/testing', '7cb'),
+                path: '/api/circuit-breaker-strategy',
+                component: ComponentCreator('/api/circuit-breaker-strategy', '3d9'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/polly_dart/docs/api/circuit-breaker-strategy',
-                component: ComponentCreator('/polly_dart/docs/api/circuit-breaker-strategy', 'b0f'),
+                path: '/api/fallback-strategy',
+                component: ComponentCreator('/api/fallback-strategy', '0e2'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/polly_dart/docs/api/fallback-strategy',
-                component: ComponentCreator('/polly_dart/docs/api/fallback-strategy', '364'),
+                path: '/api/hedging-strategy',
+                component: ComponentCreator('/api/hedging-strategy', '0c1'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/polly_dart/docs/api/hedging-strategy',
-                component: ComponentCreator('/polly_dart/docs/api/hedging-strategy', '7b7'),
+                path: '/api/outcome',
+                component: ComponentCreator('/api/outcome', '308'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/polly_dart/docs/api/outcome',
-                component: ComponentCreator('/polly_dart/docs/api/outcome', '58b'),
+                path: '/api/rate-limiter-strategy',
+                component: ComponentCreator('/api/rate-limiter-strategy', 'dd0'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/polly_dart/docs/api/rate-limiter-strategy',
-                component: ComponentCreator('/polly_dart/docs/api/rate-limiter-strategy', '51e'),
+                path: '/api/resilience-context',
+                component: ComponentCreator('/api/resilience-context', '51b'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/polly_dart/docs/api/resilience-context',
-                component: ComponentCreator('/polly_dart/docs/api/resilience-context', '1fa'),
+                path: '/api/resilience-pipeline',
+                component: ComponentCreator('/api/resilience-pipeline', 'd38'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/polly_dart/docs/api/resilience-pipeline',
-                component: ComponentCreator('/polly_dart/docs/api/resilience-pipeline', '361'),
+                path: '/api/resilience-pipeline-builder',
+                component: ComponentCreator('/api/resilience-pipeline-builder', '88f'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/polly_dart/docs/api/resilience-pipeline-builder',
-                component: ComponentCreator('/polly_dart/docs/api/resilience-pipeline-builder', '5d6'),
+                path: '/api/retry-strategy',
+                component: ComponentCreator('/api/retry-strategy', '641'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/polly_dart/docs/api/retry-strategy',
-                component: ComponentCreator('/polly_dart/docs/api/retry-strategy', 'b5e'),
+                path: '/api/timeout-strategy',
+                component: ComponentCreator('/api/timeout-strategy', 'b4e'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/polly_dart/docs/api/timeout-strategy',
-                component: ComponentCreator('/polly_dart/docs/api/timeout-strategy', '794'),
+                path: '/examples/http-client',
+                component: ComponentCreator('/examples/http-client', 'af4'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/polly_dart/docs/examples/http-client',
-                component: ComponentCreator('/polly_dart/docs/examples/http-client', '203'),
+                path: '/getting-started/basic-concepts',
+                component: ComponentCreator('/getting-started/basic-concepts', 'cfc'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/polly_dart/docs/getting-started/basic-concepts',
-                component: ComponentCreator('/polly_dart/docs/getting-started/basic-concepts', 'fdc'),
+                path: '/getting-started/installation',
+                component: ComponentCreator('/getting-started/installation', '654'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/polly_dart/docs/getting-started/installation',
-                component: ComponentCreator('/polly_dart/docs/getting-started/installation', '82b'),
+                path: '/getting-started/quick-start',
+                component: ComponentCreator('/getting-started/quick-start', 'fd2'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/polly_dart/docs/getting-started/quick-start',
-                component: ComponentCreator('/polly_dart/docs/getting-started/quick-start', 'ec6'),
+                path: '/intro',
+                component: ComponentCreator('/intro', '9fa'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/polly_dart/docs/strategies/circuit-breaker',
-                component: ComponentCreator('/polly_dart/docs/strategies/circuit-breaker', '9f1'),
+                path: '/strategies/circuit-breaker',
+                component: ComponentCreator('/strategies/circuit-breaker', '316'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/polly_dart/docs/strategies/fallback',
-                component: ComponentCreator('/polly_dart/docs/strategies/fallback', 'daa'),
+                path: '/strategies/fallback',
+                component: ComponentCreator('/strategies/fallback', '4ea'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/polly_dart/docs/strategies/hedging',
-                component: ComponentCreator('/polly_dart/docs/strategies/hedging', 'd41'),
+                path: '/strategies/hedging',
+                component: ComponentCreator('/strategies/hedging', 'f34'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/polly_dart/docs/strategies/overview',
-                component: ComponentCreator('/polly_dart/docs/strategies/overview', 'c19'),
+                path: '/strategies/overview',
+                component: ComponentCreator('/strategies/overview', '421'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/polly_dart/docs/strategies/rate-limiter',
-                component: ComponentCreator('/polly_dart/docs/strategies/rate-limiter', 'dab'),
+                path: '/strategies/rate-limiter',
+                component: ComponentCreator('/strategies/rate-limiter', '6f9'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/polly_dart/docs/strategies/retry',
-                component: ComponentCreator('/polly_dart/docs/strategies/retry', '37c'),
+                path: '/strategies/retry',
+                component: ComponentCreator('/strategies/retry', 'e26'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/polly_dart/docs/strategies/timeout',
-                component: ComponentCreator('/polly_dart/docs/strategies/timeout', '0a2'),
+                path: '/strategies/timeout',
+                component: ComponentCreator('/strategies/timeout', 'ab9'),
                 exact: true,
                 sidebar: "tutorialSidebar"
+              },
+              {
+                path: '/',
+                component: ComponentCreator('/', 'c48'),
+                exact: true
               }
             ]
           }

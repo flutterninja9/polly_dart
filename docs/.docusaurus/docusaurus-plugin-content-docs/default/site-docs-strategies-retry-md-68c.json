@@ -5,7 +5,7 @@
   "source": "@site/docs/strategies/retry.md",
   "sourceDirName": "strategies",
   "slug": "/strategies/retry",
-  "permalink": "/polly_dart/docs/strategies/retry",
+  "permalink": "/strategies/retry",
   "draft": false,
   "unlisted": false,
   "editUrl": "https://github.com/flutterninja9/polly_dart/tree/main/docs/docs/strategies/retry.md",
@@ -18,10 +18,10 @@
   "sidebar": "tutorialSidebar",
   "previous": {
     "title": "Resilience Strategies Overview",
-    "permalink": "/polly_dart/docs/strategies/overview"
+    "permalink": "/strategies/overview"
   },
   "next": {
     "title": "Circuit Breaker Strategy",
-    "permalink": "/polly_dart/docs/strategies/circuit-breaker"
+    "permalink": "/strategies/circuit-breaker"
   }
 }

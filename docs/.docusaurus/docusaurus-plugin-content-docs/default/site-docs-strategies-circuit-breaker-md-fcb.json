@@ -5,7 +5,7 @@
   "source": "@site/docs/strategies/circuit-breaker.md",
   "sourceDirName": "strategies",
   "slug": "/strategies/circuit-breaker",
-  "permalink": "/polly_dart/docs/strategies/circuit-breaker",
+  "permalink": "/strategies/circuit-breaker",
   "draft": false,
   "unlisted": false,
   "editUrl": "https://github.com/flutterninja9/polly_dart/tree/main/docs/docs/strategies/circuit-breaker.md",
@@ -18,10 +18,10 @@
   "sidebar": "tutorialSidebar",
   "previous": {
     "title": "Retry Strategy",
-    "permalink": "/polly_dart/docs/strategies/retry"
+    "permalink": "/strategies/retry"
   },
   "next": {
     "title": "Timeout Strategy",
-    "permalink": "/polly_dart/docs/strategies/timeout"
+    "permalink": "/strategies/timeout"
   }
 }

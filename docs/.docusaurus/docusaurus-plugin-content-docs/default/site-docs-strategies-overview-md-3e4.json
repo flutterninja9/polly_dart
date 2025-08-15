@@ -5,7 +5,7 @@
   "source": "@site/docs/strategies/overview.md",
   "sourceDirName": "strategies",
   "slug": "/strategies/overview",
-  "permalink": "/polly_dart/docs/strategies/overview",
+  "permalink": "/strategies/overview",
   "draft": false,
   "unlisted": false,
   "editUrl": "https://github.com/flutterninja9/polly_dart/tree/main/docs/docs/strategies/overview.md",
@@ -18,10 +18,10 @@
   "sidebar": "tutorialSidebar",
   "previous": {
     "title": "Basic Concepts",
-    "permalink": "/polly_dart/docs/getting-started/basic-concepts"
+    "permalink": "/getting-started/basic-concepts"
   },
   "next": {
     "title": "Retry Strategy",
-    "permalink": "/polly_dart/docs/strategies/retry"
+    "permalink": "/strategies/retry"
   }
 }

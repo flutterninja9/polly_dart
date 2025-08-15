@@ -1,283 +1,287 @@
 {
-  "/polly_dart/__docusaurus/debug-4e5": {
+  "/__docusaurus/debug-5ff": {
     "__comp": "__comp---theme-debug-config-23-a-2ff",
     "__context": {
-      "plugin": "plugin---polly-dart-docusaurus-debugb-38-1aa"
+      "plugin": "plugin---docusaurus-debugb-38-ad3"
     }
   },
-  "/polly_dart/__docusaurus/debug/config-1b3": {
+  "/__docusaurus/debug/config-5ba": {
     "__comp": "__comp---theme-debug-config-23-a-2ff",
     "__context": {
-      "plugin": "plugin---polly-dart-docusaurus-debugb-38-1aa"
+      "plugin": "plugin---docusaurus-debugb-38-ad3"
     }
   },
-  "/polly_dart/__docusaurus/debug/content-5e5": {
+  "/__docusaurus/debug/content-a2b": {
     "__comp": "__comp---theme-debug-contentba-8-ce7",
     "__context": {
-      "plugin": "plugin---polly-dart-docusaurus-debugb-38-1aa"
+      "plugin": "plugin---docusaurus-debugb-38-ad3"
     },
-    "__props": "__props---polly-dart-docusaurus-debug-contentd-3-e-6ae"
+    "__props": "__props---docusaurus-debug-content-3-c-0-be2"
   },
-  "/polly_dart/__docusaurus/debug/globalData-940": {
+  "/__docusaurus/debug/globalData-c3c": {
     "__comp": "__comp---theme-debug-global-dataede-0fa",
     "__context": {
-      "plugin": "plugin---polly-dart-docusaurus-debugb-38-1aa"
+      "plugin": "plugin---docusaurus-debugb-38-ad3"
     }
   },
-  "/polly_dart/__docusaurus/debug/metadata-fcf": {
+  "/__docusaurus/debug/metadata-156": {
     "__comp": "__comp---theme-debug-site-metadata-68-e-3d4",
     "__context": {
-      "plugin": "plugin---polly-dart-docusaurus-debugb-38-1aa"
+      "plugin": "plugin---docusaurus-debugb-38-ad3"
     }
   },
-  "/polly_dart/__docusaurus/debug/registry-89d": {
+  "/__docusaurus/debug/registry-88c": {
     "__comp": "__comp---theme-debug-registry-679-501",
     "__context": {
-      "plugin": "plugin---polly-dart-docusaurus-debugb-38-1aa"
+      "plugin": "plugin---docusaurus-debugb-38-ad3"
     }
   },
-  "/polly_dart/__docusaurus/debug/routes-895": {
+  "/__docusaurus/debug/routes-000": {
     "__comp": "__comp---theme-debug-routes-946-699",
     "__context": {
-      "plugin": "plugin---polly-dart-docusaurus-debugb-38-1aa"
+      "plugin": "plugin---docusaurus-debugb-38-ad3"
     }
   },
-  "/polly_dart/blog-08c": {
+  "/blog-b9a": {
     "__comp": "__comp---theme-blog-list-pagea-6-a-7ba",
     "__context": {
-      "plugin": "plugin---polly-dart-blog-369-a0c"
+      "plugin": "plugin---blog-369-22e"
     },
-    "sidebar": "sidebar---polly-dart-blog-814-296",
+    "sidebar": "sidebar---blog-814-8ac",
     "items": [
       {
-        "content": "content---polly-dart-blog-2-c-1-9c9"
+        "content": "content---blog-2-c-1-60e"
       }
     ],
-    "__props": "__props---polly-dart-blog-869-5f2"
+    "__props": "__props---blogc-15-573"
   },
-  "/polly_dart/blog/archive-67d": {
+  "/blog/archive-182": {
     "__comp": "__comp---theme-blog-archive-page-9-e-4-1d8",
     "__context": {
-      "plugin": "plugin---polly-dart-blog-369-a0c"
+      "plugin": "plugin---blog-369-22e"
     },
-    "__props": "__props---polly-dart-blog-archive-943-95a"
+    "__props": "__props---blog-archivef-81-229"
   },
-  "/polly_dart/blog/authors-9ef": {
+  "/blog/authors-0b7": {
     "__comp": "__comp---theme-blog-pages-blog-authors-list-page-621-70c",
     "__context": {
       "data": {
-        "blogMetadata": "blogMetadata---polly-dart-blog-authorsace-b8c"
+        "blogMetadata": "blogMetadata---blog-authorsace-e7d"
       },
-      "plugin": "plugin---polly-dart-blog-369-a0c"
+      "plugin": "plugin---blog-369-22e"
     },
-    "sidebar": "sidebar---polly-dart-blog-814-296",
-    "__props": "__props---polly-dart-blog-authorsd-61-802"
+    "sidebar": "sidebar---blog-814-8ac",
+    "__props": "__props---blog-authorsef-8-44f"
   },
-  "/polly_dart/blog/introducing-polly-dart-526": {
+  "/blog/introducing-polly-dart-56d": {
     "__comp": "__comp---theme-blog-post-pageccc-cab",
     "__context": {
       "data": {
-        "blogMetadata": "blogMetadata---polly-dart-blog-authorsace-b8c"
+        "blogMetadata": "blogMetadata---blog-authorsace-e7d"
       },
-      "plugin": "plugin---polly-dart-blog-369-a0c"
+      "plugin": "plugin---blog-369-22e"
     },
-    "sidebar": "sidebar---polly-dart-blog-814-296",
-    "content": "content---polly-dart-blog-introducing-polly-dartf-76-0b9"
+    "sidebar": "sidebar---blog-814-8ac",
+    "content": "content---blog-introducing-polly-dartf-76-1b1"
   },
-  "/polly_dart/blog/tags-550": {
+  "/blog/tags-287": {
     "__comp": "__comp---theme-blog-tags-list-page-01-a-d0b",
     "__context": {
-      "plugin": "plugin---polly-dart-blog-369-a0c"
+      "plugin": "plugin---blog-369-22e"
     },
-    "sidebar": "sidebar---polly-dart-blog-814-296",
-    "__props": "__props---polly-dart-blog-tags-97-d-b85"
+    "sidebar": "sidebar---blog-814-8ac",
+    "__props": "__props---blog-tags-3-a-2-fa2"
   },
-  "/polly_dart/blog/tags/announcement-f48": {
+  "/blog/tags/announcement-724": {
     "__comp": "__comp---theme-blog-tags-posts-page-687-b6c",
     "__context": {
-      "plugin": "plugin---polly-dart-blog-369-a0c"
+      "plugin": "plugin---blog-369-22e"
     },
-    "sidebar": "sidebar---polly-dart-blog-814-296",
+    "sidebar": "sidebar---blog-814-8ac",
     "items": [
       {
-        "content": "content---polly-dart-blog-2-c-1-9c9"
+        "content": "content---blog-2-c-1-60e"
       }
     ],
-    "__props": "__props---polly-dart-blog-tags-announcement-3-c-5-492"
+    "__props": "__props---blog-tags-announcement-9-d-8-052"
   },
-  "/polly_dart/blog/tags/dart-c21": {
+  "/blog/tags/dart-223": {
     "__comp": "__comp---theme-blog-tags-posts-page-687-b6c",
     "__context": {
-      "plugin": "plugin---polly-dart-blog-369-a0c"
+      "plugin": "plugin---blog-369-22e"
     },
-    "sidebar": "sidebar---polly-dart-blog-814-296",
+    "sidebar": "sidebar---blog-814-8ac",
     "items": [
       {
-        "content": "content---polly-dart-blog-2-c-1-9c9"
+        "content": "content---blog-2-c-1-60e"
       }
     ],
-    "__props": "__props---polly-dart-blog-tags-dart-827-6f6"
+    "__props": "__props---blog-tags-dart-1-fa-2cc"
   },
-  "/polly_dart/blog/tags/flutter-bb8": {
+  "/blog/tags/flutter-9c3": {
     "__comp": "__comp---theme-blog-tags-posts-page-687-b6c",
     "__context": {
-      "plugin": "plugin---polly-dart-blog-369-a0c"
+      "plugin": "plugin---blog-369-22e"
     },
-    "sidebar": "sidebar---polly-dart-blog-814-296",
+    "sidebar": "sidebar---blog-814-8ac",
     "items": [
       {
-        "content": "content---polly-dart-blog-2-c-1-9c9"
+        "content": "content---blog-2-c-1-60e"
       }
     ],
-    "__props": "__props---polly-dart-blog-tags-flutterf-83-98f"
+    "__props": "__props---blog-tags-flutter-510-719"
   },
-  "/polly_dart/blog/tags/reliability-560": {
+  "/blog/tags/reliability-6ff": {
     "__comp": "__comp---theme-blog-tags-posts-page-687-b6c",
     "__context": {
-      "plugin": "plugin---polly-dart-blog-369-a0c"
+      "plugin": "plugin---blog-369-22e"
     },
-    "sidebar": "sidebar---polly-dart-blog-814-296",
+    "sidebar": "sidebar---blog-814-8ac",
     "items": [
       {
-        "content": "content---polly-dart-blog-2-c-1-9c9"
+        "content": "content---blog-2-c-1-60e"
       }
     ],
-    "__props": "__props---polly-dart-blog-tags-reliability-80-a-ac4"
+    "__props": "__props---blog-tags-reliabilityb-2-d-6c3"
   },
-  "/polly_dart/blog/tags/resilience-18b": {
+  "/blog/tags/resilience-dbd": {
     "__comp": "__comp---theme-blog-tags-posts-page-687-b6c",
     "__context": {
-      "plugin": "plugin---polly-dart-blog-369-a0c"
+      "plugin": "plugin---blog-369-22e"
     },
-    "sidebar": "sidebar---polly-dart-blog-814-296",
+    "sidebar": "sidebar---blog-814-8ac",
     "items": [
       {
-        "content": "content---polly-dart-blog-2-c-1-9c9"
+        "content": "content---blog-2-c-1-60e"
       }
     ],
-    "__props": "__props---polly-dart-blog-tags-resilience-480-56c"
+    "__props": "__props---blog-tags-resiliencef-00-dd6"
   },
-  "/polly_dart/search-0f6": {
+  "/search-5de": {
     "__comp": "__comp---theme-search-page-1-a-4-d6f",
     "__context": {
-      "plugin": "plugin---polly-dart-searchc-14-b14"
+      "plugin": "plugin---searchc-14-0ea"
     }
   },
-  "/polly_dart/docs-d97": {
+  "/-9aa": {
     "__comp": "__comp---theme-docs-root-5-e-9-0b6",
     "__context": {
-      "plugin": "plugin---polly-dart-docsaba-3a7"
+      "plugin": "plugin---aba-d70"
     }
   },
-  "/polly_dart/docs-3ab": {
+  "/-cf9": {
     "__comp": "__comp---theme-doc-version-roota-7-b-5de",
-    "__props": "__props---polly-dart-docs-1-e-5-139"
+    "__props": "__props---22-d-307"
   },
-  "/polly_dart/docs-54c": {
+  "/-175": {
     "__comp": "__comp---theme-doc-roota-94-67a"
   },
-  "/polly_dart/docs/-27d": {
+  "/advanced/combining-strategies-584": {
     "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---polly-dart-docs-0-e-3-870"
+    "content": "content---advanced-combining-strategies-7-db-931"
   },
-  "/polly_dart/docs/advanced/combining-strategies-1c3": {
+  "/advanced/custom-strategies-543": {
     "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---polly-dart-docs-advanced-combining-strategies-7-db-4c0"
+    "content": "content---advanced-custom-strategiesdc-7-de2"
   },
-  "/polly_dart/docs/advanced/custom-strategies-035": {
+  "/advanced/monitoring-dcc": {
     "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---polly-dart-docs-advanced-custom-strategiesdc-7-32c"
+    "content": "content---advanced-monitoring-2-a-2-581"
   },
-  "/polly_dart/docs/advanced/monitoring-87a": {
+  "/advanced/testing-672": {
     "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---polly-dart-docs-advanced-monitoring-2-a-2-d56"
+    "content": "content---advanced-testing-01-f-5ca"
   },
-  "/polly_dart/docs/advanced/testing-7cb": {
+  "/api/circuit-breaker-strategy-3d9": {
     "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---polly-dart-docs-advanced-testing-01-f-4ee"
+    "content": "content---api-circuit-breaker-strategy-1-a-5-844"
   },
-  "/polly_dart/docs/api/circuit-breaker-strategy-b0f": {
+  "/api/fallback-strategy-0e2": {
     "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---polly-dart-docs-api-circuit-breaker-strategy-1-a-5-bb1"
+    "content": "content---api-fallback-strategybaf-464"
   },
-  "/polly_dart/docs/api/fallback-strategy-364": {
+  "/api/hedging-strategy-0c1": {
     "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---polly-dart-docs-api-fallback-strategybaf-283"
+    "content": "content---api-hedging-strategy-27-e-7d7"
   },
-  "/polly_dart/docs/api/hedging-strategy-7b7": {
+  "/api/outcome-308": {
     "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---polly-dart-docs-api-hedging-strategy-27-e-74b"
+    "content": "content---api-outcome-4-db-f0b"
   },
-  "/polly_dart/docs/api/outcome-58b": {
+  "/api/rate-limiter-strategy-dd0": {
     "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---polly-dart-docs-api-outcome-4-db-9f0"
+    "content": "content---api-rate-limiter-strategy-01-d-8b1"
   },
-  "/polly_dart/docs/api/rate-limiter-strategy-51e": {
+  "/api/resilience-context-51b": {
     "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---polly-dart-docs-api-rate-limiter-strategy-01-d-656"
+    "content": "content---api-resilience-context-5-b-4-fd4"
   },
-  "/polly_dart/docs/api/resilience-context-1fa": {
+  "/api/resilience-pipeline-d38": {
     "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---polly-dart-docs-api-resilience-context-5-b-4-05c"
+    "content": "content---api-resilience-pipeline-67-c-b6a"
   },
-  "/polly_dart/docs/api/resilience-pipeline-361": {
+  "/api/resilience-pipeline-builder-88f": {
     "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---polly-dart-docs-api-resilience-pipeline-67-c-a6e"
+    "content": "content---api-resilience-pipeline-builder-937-62e"
   },
-  "/polly_dart/docs/api/resilience-pipeline-builder-5d6": {
+  "/api/retry-strategy-641": {
     "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---polly-dart-docs-api-resilience-pipeline-builder-937-418"
+    "content": "content---api-retry-strategye-58-4fa"
   },
-  "/polly_dart/docs/api/retry-strategy-b5e": {
+  "/api/timeout-strategy-b4e": {
     "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---polly-dart-docs-api-retry-strategye-58-d6e"
+    "content": "content---api-timeout-strategyffe-544"
   },
-  "/polly_dart/docs/api/timeout-strategy-794": {
+  "/examples/http-client-af4": {
     "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---polly-dart-docs-api-timeout-strategyffe-573"
+    "content": "content---examples-http-clientfb-7-04e"
   },
-  "/polly_dart/docs/examples/http-client-203": {
+  "/getting-started/basic-concepts-cfc": {
     "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---polly-dart-docs-examples-http-clientfb-7-c4d"
+    "content": "content---getting-started-basic-conceptsd-85-39e"
   },
-  "/polly_dart/docs/getting-started/basic-concepts-fdc": {
+  "/getting-started/installation-654": {
     "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---polly-dart-docs-getting-started-basic-conceptsd-85-f7e"
+    "content": "content---getting-started-installation-54-f-988"
   },
-  "/polly_dart/docs/getting-started/installation-82b": {
+  "/getting-started/quick-start-fd2": {
     "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---polly-dart-docs-getting-started-installation-54-f-993"
+    "content": "content---getting-started-quick-start-588-9db"
   },
-  "/polly_dart/docs/getting-started/quick-start-ec6": {
+  "/intro-9fa": {
     "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---polly-dart-docs-getting-started-quick-start-588-837"
+    "content": "content---intro-0-e-3-7b8"
   },
-  "/polly_dart/docs/strategies/circuit-breaker-9f1": {
+  "/strategies/circuit-breaker-316": {
     "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---polly-dart-docs-strategies-circuit-breakerfcb-b3f"
+    "content": "content---strategies-circuit-breakerfcb-e34"
   },
-  "/polly_dart/docs/strategies/fallback-daa": {
+  "/strategies/fallback-4ea": {
     "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---polly-dart-docs-strategies-fallbackb-59-ff2"
+    "content": "content---strategies-fallbackb-59-f7b"
   },
-  "/polly_dart/docs/strategies/hedging-d41": {
+  "/strategies/hedging-f34": {
     "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---polly-dart-docs-strategies-hedgingbdb-9e5"
+    "content": "content---strategies-hedgingbdb-7be"
   },
-  "/polly_dart/docs/strategies/overview-c19": {
+  "/strategies/overview-421": {
     "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---polly-dart-docs-strategies-overview-3-e-4-074"
+    "content": "content---strategies-overview-3-e-4-2d4"
   },
-  "/polly_dart/docs/strategies/rate-limiter-dab": {
+  "/strategies/rate-limiter-6f9": {
     "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---polly-dart-docs-strategies-rate-limiter-7-cb-c18"
+    "content": "content---strategies-rate-limiter-7-cb-b2e"
   },
-  "/polly_dart/docs/strategies/retry-37c": {
+  "/strategies/retry-e26": {
     "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---polly-dart-docs-strategies-retry-68-c-215"
+    "content": "content---strategies-retry-68-c-f25"
   },
-  "/polly_dart/docs/strategies/timeout-0a2": {
+  "/strategies/timeout-ab9": {
     "__comp": "__comp---theme-doc-item-178-a40",
-    "content": "content---polly-dart-docs-strategies-timeout-848-f95"
+    "content": "content---strategies-timeout-848-45c"
+  },
+  "/-c48": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---c-37-d02"
   }
 }

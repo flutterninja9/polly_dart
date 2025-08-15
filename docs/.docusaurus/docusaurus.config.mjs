@@ -7,8 +7,8 @@ export default {
   "title": "Polly Dart",
   "tagline": "Resilience and Transient-Fault-Handling for Dart",
   "favicon": "img/favicon.ico",
-  "url": "https://flutterninja9.github.io",
-  "baseUrl": "/polly_dart/",
+  "url": "https://polly.anirudhsingh.in",
+  "baseUrl": "/",
   "organizationName": "flutterninja9",
   "projectName": "polly_dart",
   "onBrokenLinks": "warn",
@@ -42,6 +42,7 @@ export default {
       {
         "docs": {
           "sidebarPath": "./sidebars.js",
+          "routeBasePath": "/",
           "editUrl": "https://github.com/flutterninja9/polly_dart/tree/main/docs/"
         },
         "blog": {
@@ -105,11 +106,11 @@ export default {
           "items": [
             {
               "label": "Getting Started",
-              "to": "/docs/intro"
+              "to": "/intro"
             },
             {
               "label": "API Reference",
-              "to": "/docs/category/api-reference"
+              "to": "/api/resilience-pipeline"
             }
           ]
         },

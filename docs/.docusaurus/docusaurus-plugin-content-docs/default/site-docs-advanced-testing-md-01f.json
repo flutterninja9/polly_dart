@@ -5,7 +5,7 @@
   "source": "@site/docs/advanced/testing.md",
   "sourceDirName": "advanced",
   "slug": "/advanced/testing",
-  "permalink": "/polly_dart/docs/advanced/testing",
+  "permalink": "/advanced/testing",
   "draft": false,
   "unlisted": false,
   "editUrl": "https://github.com/flutterninja9/polly_dart/tree/main/docs/docs/advanced/testing.md",
@@ -18,10 +18,10 @@
   "sidebar": "tutorialSidebar",
   "previous": {
     "title": "Monitoring and Observability",
-    "permalink": "/polly_dart/docs/advanced/monitoring"
+    "permalink": "/advanced/monitoring"
   },
   "next": {
     "title": "ResiliencePipeline",
-    "permalink": "/polly_dart/docs/api/resilience-pipeline"
+    "permalink": "/api/resilience-pipeline"
   }
 }

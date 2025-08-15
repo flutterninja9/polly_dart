@@ -1,5 +1,5 @@
 {
-  "blogBasePath": "/polly_dart/blog",
+  "blogBasePath": "/blog",
   "blogTitle": "Blog",
-  "authorsListPath": "/polly_dart/blog/authors"
+  "authorsListPath": "/blog/authors"
 }
