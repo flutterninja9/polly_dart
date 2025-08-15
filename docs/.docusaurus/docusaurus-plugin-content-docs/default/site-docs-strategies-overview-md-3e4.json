@@ -1,0 +1,27 @@
+{
+  "id": "strategies/overview",
+  "title": "Resilience Strategies Overview",
+  "description": "Polly Dart provides six core resilience strategies that can be combined to build robust applications. Each strategy addresses specific failure scenarios and can be configured to match your application's needs.",
+  "source": "@site/docs/strategies/overview.md",
+  "sourceDirName": "strategies",
+  "slug": "/strategies/overview",
+  "permalink": "/polly_dart/docs/strategies/overview",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/flutterninja9/polly_dart/tree/main/docs/docs/strategies/overview.md",
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 1,
+  "frontMatter": {
+    "sidebar_position": 1
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Basic Concepts",
+    "permalink": "/polly_dart/docs/getting-started/basic-concepts"
+  },
+  "next": {
+    "title": "Retry Strategy",
+    "permalink": "/polly_dart/docs/strategies/retry"
+  }
+}

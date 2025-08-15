@@ -1,0 +1,27 @@
+{
+  "id": "getting-started/basic-concepts",
+  "title": "Basic Concepts",
+  "description": "Understanding the fundamental concepts behind Polly Dart will help you build more effective resilience strategies and debug issues when they arise.",
+  "source": "@site/docs/getting-started/basic-concepts.md",
+  "sourceDirName": "getting-started",
+  "slug": "/getting-started/basic-concepts",
+  "permalink": "/polly_dart/docs/getting-started/basic-concepts",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/flutterninja9/polly_dart/tree/main/docs/docs/getting-started/basic-concepts.md",
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 3,
+  "frontMatter": {
+    "sidebar_position": 3
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Quick Start",
+    "permalink": "/polly_dart/docs/getting-started/quick-start"
+  },
+  "next": {
+    "title": "Resilience Strategies Overview",
+    "permalink": "/polly_dart/docs/strategies/overview"
+  }
+}

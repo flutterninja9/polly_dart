@@ -1,0 +1,27 @@
+{
+  "id": "strategies/retry",
+  "title": "Retry Strategy",
+  "description": "The Retry Strategy automatically retries failed operations, making your application more resilient to transient failures like network hiccups, temporary service unavailability, or resource contention.",
+  "source": "@site/docs/strategies/retry.md",
+  "sourceDirName": "strategies",
+  "slug": "/strategies/retry",
+  "permalink": "/polly_dart/docs/strategies/retry",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/flutterninja9/polly_dart/tree/main/docs/docs/strategies/retry.md",
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 2,
+  "frontMatter": {
+    "sidebar_position": 2
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Resilience Strategies Overview",
+    "permalink": "/polly_dart/docs/strategies/overview"
+  },
+  "next": {
+    "title": "Circuit Breaker Strategy",
+    "permalink": "/polly_dart/docs/strategies/circuit-breaker"
+  }
+}

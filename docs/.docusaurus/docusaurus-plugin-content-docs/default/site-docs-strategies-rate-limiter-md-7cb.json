@@ -1,0 +1,27 @@
+{
+  "id": "strategies/rate-limiter",
+  "title": "Rate Limiter Strategy",
+  "description": "The Rate Limiter Strategy controls the rate of execution to prevent overwhelming resources and ensure fair usage. It acts as a traffic control system, queuing or rejecting requests when limits are exceeded, protecting both your application and downstream services.",
+  "source": "@site/docs/strategies/rate-limiter.md",
+  "sourceDirName": "strategies",
+  "slug": "/strategies/rate-limiter",
+  "permalink": "/polly_dart/docs/strategies/rate-limiter",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/flutterninja9/polly_dart/tree/main/docs/docs/strategies/rate-limiter.md",
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 7,
+  "frontMatter": {
+    "sidebar_position": 7
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Hedging Strategy",
+    "permalink": "/polly_dart/docs/strategies/hedging"
+  },
+  "next": {
+    "title": "Combining Strategies",
+    "permalink": "/polly_dart/docs/advanced/combining-strategies"
+  }
+}

@@ -1,0 +1,62 @@
+{
+  "permalink": "/polly_dart/blog/introducing-polly-dart",
+  "editUrl": "https://github.com/flutterninja9/polly_dart/tree/main/docs/blog/2025-08-15-introducing-polly-dart.md",
+  "source": "@site/blog/2025-08-15-introducing-polly-dart.md",
+  "title": "Introducing Polly Dart - Resilience for the Dart Ecosystem",
+  "description": "Today, I'm excited to announce Polly Dart - a comprehensive resilience and transient-fault-handling library for Dart applications. Inspired by the battle-tested .NET Polly library, Polly Dart brings enterprise-grade resilience patterns to the Dart ecosystem.",
+  "date": "2025-08-15T00:00:00.000Z",
+  "tags": [
+    {
+      "inline": true,
+      "label": "dart",
+      "permalink": "/polly_dart/blog/tags/dart"
+    },
+    {
+      "inline": true,
+      "label": "flutter",
+      "permalink": "/polly_dart/blog/tags/flutter"
+    },
+    {
+      "inline": true,
+      "label": "resilience",
+      "permalink": "/polly_dart/blog/tags/resilience"
+    },
+    {
+      "inline": true,
+      "label": "reliability",
+      "permalink": "/polly_dart/blog/tags/reliability"
+    },
+    {
+      "inline": true,
+      "label": "announcement",
+      "permalink": "/polly_dart/blog/tags/announcement"
+    }
+  ],
+  "readingTime": 4.5,
+  "hasTruncateMarker": true,
+  "authors": [
+    {
+      "name": "Anirudh Singh",
+      "title": "Creator of Polly Dart",
+      "url": "https://github.com/flutterninja9",
+      "imageURL": "https://github.com/flutterninja9.png",
+      "key": "anirudh_singh",
+      "page": null
+    }
+  ],
+  "frontMatter": {
+    "slug": "introducing-polly-dart",
+    "title": "Introducing Polly Dart - Resilience for the Dart Ecosystem",
+    "authors": [
+      "anirudh_singh"
+    ],
+    "tags": [
+      "dart",
+      "flutter",
+      "resilience",
+      "reliability",
+      "announcement"
+    ]
+  },
+  "unlisted": false
+}

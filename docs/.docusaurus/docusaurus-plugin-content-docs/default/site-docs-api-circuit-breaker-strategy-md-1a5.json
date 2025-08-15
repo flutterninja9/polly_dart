@@ -1,0 +1,27 @@
+{
+  "id": "api/circuit-breaker-strategy",
+  "title": "CircuitBreakerStrategy",
+  "description": "The CircuitBreakerStrategy prevents cascading failures by monitoring failure rates and temporarily blocking calls when thresholds are exceeded.",
+  "source": "@site/docs/api/circuit-breaker-strategy.md",
+  "sourceDirName": "api",
+  "slug": "/api/circuit-breaker-strategy",
+  "permalink": "/polly_dart/docs/api/circuit-breaker-strategy",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/flutterninja9/polly_dart/tree/main/docs/docs/api/circuit-breaker-strategy.md",
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 6,
+  "frontMatter": {
+    "sidebar_position": 6
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "RetryStrategy",
+    "permalink": "/polly_dart/docs/api/retry-strategy"
+  },
+  "next": {
+    "title": "TimeoutStrategy",
+    "permalink": "/polly_dart/docs/api/timeout-strategy"
+  }
+}

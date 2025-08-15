@@ -1,0 +1,27 @@
+{
+  "id": "advanced/monitoring",
+  "title": "Monitoring and Observability",
+  "description": "Monitoring your resilience strategies is crucial for understanding system behavior, identifying bottlenecks, and optimizing performance. This guide covers comprehensive monitoring approaches for Polly Dart applications.",
+  "source": "@site/docs/advanced/monitoring.md",
+  "sourceDirName": "advanced",
+  "slug": "/advanced/monitoring",
+  "permalink": "/polly_dart/docs/advanced/monitoring",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/flutterninja9/polly_dart/tree/main/docs/docs/advanced/monitoring.md",
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 3,
+  "frontMatter": {
+    "sidebar_position": 3
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Custom Strategies",
+    "permalink": "/polly_dart/docs/advanced/custom-strategies"
+  },
+  "next": {
+    "title": "Testing Resilience Strategies",
+    "permalink": "/polly_dart/docs/advanced/testing"
+  }
+}

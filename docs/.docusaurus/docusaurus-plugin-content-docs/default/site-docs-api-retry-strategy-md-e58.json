@@ -1,0 +1,27 @@
+{
+  "id": "api/retry-strategy",
+  "title": "RetryStrategy",
+  "description": "The RetryStrategy provides automatic retry functionality for transient failures with configurable backoff strategies.",
+  "source": "@site/docs/api/retry-strategy.md",
+  "sourceDirName": "api",
+  "slug": "/api/retry-strategy",
+  "permalink": "/polly_dart/docs/api/retry-strategy",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/flutterninja9/polly_dart/tree/main/docs/docs/api/retry-strategy.md",
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 5,
+  "frontMatter": {
+    "sidebar_position": 5
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Outcome",
+    "permalink": "/polly_dart/docs/api/outcome"
+  },
+  "next": {
+    "title": "CircuitBreakerStrategy",
+    "permalink": "/polly_dart/docs/api/circuit-breaker-strategy"
+  }
+}

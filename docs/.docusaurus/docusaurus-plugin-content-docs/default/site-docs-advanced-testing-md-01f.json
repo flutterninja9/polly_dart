@@ -1,0 +1,27 @@
+{
+  "id": "advanced/testing",
+  "title": "Testing Resilience Strategies",
+  "description": "Testing resilience strategies is crucial for ensuring your applications behave correctly under failure conditions. This comprehensive guide covers testing approaches from unit tests to chaos engineering.",
+  "source": "@site/docs/advanced/testing.md",
+  "sourceDirName": "advanced",
+  "slug": "/advanced/testing",
+  "permalink": "/polly_dart/docs/advanced/testing",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/flutterninja9/polly_dart/tree/main/docs/docs/advanced/testing.md",
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 4,
+  "frontMatter": {
+    "sidebar_position": 4
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Monitoring and Observability",
+    "permalink": "/polly_dart/docs/advanced/monitoring"
+  },
+  "next": {
+    "title": "ResiliencePipeline",
+    "permalink": "/polly_dart/docs/api/resilience-pipeline"
+  }
+}

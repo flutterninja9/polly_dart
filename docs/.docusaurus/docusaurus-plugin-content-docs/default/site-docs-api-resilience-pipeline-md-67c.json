@@ -1,0 +1,27 @@
+{
+  "id": "api/resilience-pipeline",
+  "title": "ResiliencePipeline",
+  "description": "The ResiliencePipeline class is the core execution engine that combines multiple resilience strategies into a cohesive resilience solution.",
+  "source": "@site/docs/api/resilience-pipeline.md",
+  "sourceDirName": "api",
+  "slug": "/api/resilience-pipeline",
+  "permalink": "/polly_dart/docs/api/resilience-pipeline",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/flutterninja9/polly_dart/tree/main/docs/docs/api/resilience-pipeline.md",
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 1,
+  "frontMatter": {
+    "sidebar_position": 1
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Testing Resilience Strategies",
+    "permalink": "/polly_dart/docs/advanced/testing"
+  },
+  "next": {
+    "title": "ResiliencePipelineBuilder",
+    "permalink": "/polly_dart/docs/api/resilience-pipeline-builder"
+  }
+}
