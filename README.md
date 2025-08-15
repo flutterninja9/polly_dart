@@ -5,6 +5,10 @@
 
 A Dart port of [Polly](https://github.com/App-vNext/Polly), the .NET resilience and transient-fault-handling library. Polly Dart allows developers to express resilience strategies such as Retry, Circuit Breaker, Timeout, Rate Limiter, Hedging, and Fallback in a fluent and thread-safe manner.
 
+## Documentation
+
+📚 **[Complete Documentation](https://polly.anirudhsingh.in/)** - Comprehensive guides, API reference, and advanced usage patterns.
+
 ## Features
 
 Polly Dart provides the following resilience strategies:
