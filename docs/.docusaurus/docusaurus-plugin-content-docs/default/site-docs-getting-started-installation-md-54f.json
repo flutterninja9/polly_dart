@@ -1,0 +1,27 @@
+{
+  "id": "getting-started/installation",
+  "title": "Installation",
+  "description": "Get Polly Dart up and running in your Dart or Flutter project in just a few steps.",
+  "source": "@site/docs/getting-started/installation.md",
+  "sourceDirName": "getting-started",
+  "slug": "/getting-started/installation",
+  "permalink": "/polly_dart/docs/getting-started/installation",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/flutterninja9/polly_dart/tree/main/docs/docs/getting-started/installation.md",
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 1,
+  "frontMatter": {
+    "sidebar_position": 1
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Welcome to Polly Dart",
+    "permalink": "/polly_dart/docs/"
+  },
+  "next": {
+    "title": "Quick Start",
+    "permalink": "/polly_dart/docs/getting-started/quick-start"
+  }
+}

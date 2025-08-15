@@ -1,0 +1,24 @@
+{
+  "id": "intro",
+  "title": "Welcome to Polly Dart",
+  "description": "Polly Dart is a comprehensive resilience and transient-fault-handling library for Dart applications. Inspired by the .NET Polly library, it provides developers with powerful tools to handle failures gracefully and build robust applications.",
+  "source": "@site/docs/intro.md",
+  "sourceDirName": ".",
+  "slug": "/",
+  "permalink": "/polly_dart/docs/",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/flutterninja9/polly_dart/tree/main/docs/docs/intro.md",
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 1,
+  "frontMatter": {
+    "sidebar_position": 1,
+    "slug": "/"
+  },
+  "sidebar": "tutorialSidebar",
+  "next": {
+    "title": "Installation",
+    "permalink": "/polly_dart/docs/getting-started/installation"
+  }
+}

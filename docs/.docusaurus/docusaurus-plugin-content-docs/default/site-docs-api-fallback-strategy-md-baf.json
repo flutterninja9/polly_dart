@@ -1,0 +1,27 @@
+{
+  "id": "api/fallback-strategy",
+  "title": "FallbackStrategy",
+  "description": "The FallbackStrategy provides alternative responses when operations fail, ensuring graceful degradation and improved user experience.",
+  "source": "@site/docs/api/fallback-strategy.md",
+  "sourceDirName": "api",
+  "slug": "/api/fallback-strategy",
+  "permalink": "/polly_dart/docs/api/fallback-strategy",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/flutterninja9/polly_dart/tree/main/docs/docs/api/fallback-strategy.md",
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 8,
+  "frontMatter": {
+    "sidebar_position": 8
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "TimeoutStrategy",
+    "permalink": "/polly_dart/docs/api/timeout-strategy"
+  },
+  "next": {
+    "title": "HedgingStrategy",
+    "permalink": "/polly_dart/docs/api/hedging-strategy"
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "id": "advanced/combining-strategies",
+  "title": "Combining Strategies",
+  "description": "One of Polly Dart's most powerful features is the ability to combine multiple resilience strategies into a single pipeline. This creates layered defense mechanisms that work together to handle different types of failures and optimize performance.",
+  "source": "@site/docs/advanced/combining-strategies.md",
+  "sourceDirName": "advanced",
+  "slug": "/advanced/combining-strategies",
+  "permalink": "/polly_dart/docs/advanced/combining-strategies",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/flutterninja9/polly_dart/tree/main/docs/docs/advanced/combining-strategies.md",
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 1,
+  "frontMatter": {
+    "sidebar_position": 1
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Rate Limiter Strategy",
+    "permalink": "/polly_dart/docs/strategies/rate-limiter"
+  },
+  "next": {
+    "title": "Custom Strategies",
+    "permalink": "/polly_dart/docs/advanced/custom-strategies"
+  }
+}

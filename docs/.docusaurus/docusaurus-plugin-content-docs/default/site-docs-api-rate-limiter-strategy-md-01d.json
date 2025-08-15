@@ -1,0 +1,27 @@
+{
+  "id": "api/rate-limiter-strategy",
+  "title": "RateLimiterStrategy",
+  "description": "The RateLimiterStrategy controls the rate of operations to prevent system overload and ensure fair resource usage.",
+  "source": "@site/docs/api/rate-limiter-strategy.md",
+  "sourceDirName": "api",
+  "slug": "/api/rate-limiter-strategy",
+  "permalink": "/polly_dart/docs/api/rate-limiter-strategy",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/flutterninja9/polly_dart/tree/main/docs/docs/api/rate-limiter-strategy.md",
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 10,
+  "frontMatter": {
+    "sidebar_position": 10
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "HedgingStrategy",
+    "permalink": "/polly_dart/docs/api/hedging-strategy"
+  },
+  "next": {
+    "title": "HTTP Client with Resilience",
+    "permalink": "/polly_dart/docs/examples/http-client"
+  }
+}

@@ -1,0 +1,213 @@
+/**
+ * Any CSS included here will be global. The classic template
+ * bundles Infima by default. Infima is a CSS framework designed to
+ * work well for content-centric websites.
+ */
+
+/* You can override the default Infima variables here. */
+:root {
+  --ifm-color-primary: #2e8555;
+  --ifm-color-primary-dark: #29784c;
+  --ifm-color-primary-darker: #277148;
+  --ifm-color-primary-darkest: #205d3b;
+  --ifm-color-primary-light: #33925d;
+  --ifm-color-primary-lighter: #359962;
+  --ifm-color-primary-lightest: #3cad6e;
+  --ifm-code-font-size: 95%;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+}
+
+/* For readability concerns, you should choose a lighter palette in dark mode. */
+[data-theme='dark'] {
+  --ifm-color-primary: #25c2a0;
+  --ifm-color-primary-dark: #21af90;
+  --ifm-color-primary-darker: #1fa588;
+  --ifm-color-primary-darkest: #1a8870;
+  --ifm-color-primary-light: #29d5b0;
+  --ifm-color-primary-lighter: #32d8b4;
+  --ifm-color-primary-lightest: #4fddbf;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+}
+
+/* Custom styles for Polly Dart documentation */
+
+/* Strategy cards styling */
+.card {
+  border: 1px solid var(--ifm-color-emphasis-200);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Code block enhancements */
+.code-block-title {
+  background: var(--ifm-color-emphasis-200);
+  color: var(--ifm-color-content);
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  border-radius: 6px 6px 0 0;
+  margin-bottom: 0;
+}
+
+.code-block-title + pre {
+  border-radius: 0 0 6px 6px;
+  margin-top: 0;
+}
+
+/* Status badges */
+.badge {
+  display: inline-block;
+  padding: 0.25rem 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  border-radius: 0.375rem;
+}
+
+.badge--success {
+  color: #ffffff;
+  background-color: #28a745;
+}
+
+.badge--warning {
+  color: #212529;
+  background-color: #ffc107;
+}
+
+.badge--danger {
+  color: #ffffff;
+  background-color: #dc3545;
+}
+
+.badge--info {
+  color: #ffffff;
+  background-color: #17a2b8;
+}
+
+/* Strategy overview icons */
+.strategy-icon {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  display: block;
+}
+
+/* Performance comparison table */
+.performance-table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 1rem 0;
+}
+
+.performance-table th,
+.performance-table td {
+  border: 1px solid var(--ifm-color-emphasis-200);
+  padding: 0.75rem;
+  text-align: left;
+}
+
+.performance-table th {
+  background-color: var(--ifm-color-emphasis-100);
+  font-weight: 600;
+}
+
+/* Mermaid diagram styling */
+.mermaid {
+  text-align: center;
+  margin: 2rem 0;
+}
+
+/* Custom admonition styling */
+.admonition {
+  margin: 1.5rem 0;
+  padding: 1rem;
+  border-left: 4px solid;
+  border-radius: 0 6px 6px 0;
+}
+
+.admonition.admonition-tip {
+  border-left-color: var(--ifm-color-success);
+  background-color: rgba(40, 167, 69, 0.1);
+}
+
+.admonition.admonition-warning {
+  border-left-color: var(--ifm-color-warning);
+  background-color: rgba(255, 193, 7, 0.1);
+}
+
+.admonition.admonition-danger {
+  border-left-color: var(--ifm-color-danger);
+  background-color: rgba(220, 53, 69, 0.1);
+}
+
+/* API reference styling */
+.api-method {
+  background: var(--ifm-color-emphasis-100);
+  border-radius: 4px;
+  padding: 0.25rem 0.5rem;
+  font-family: var(--ifm-font-family-monospace);
+  font-size: 0.875rem;
+  margin-right: 0.5rem;
+}
+
+.api-return-type {
+  color: var(--ifm-color-primary);
+  font-family: var(--ifm-font-family-monospace);
+  font-size: 0.875rem;
+}
+
+/* Example showcase */
+.example-showcase {
+  background: var(--ifm-background-surface-color);
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin: 2rem 0;
+}
+
+.example-showcase h3 {
+  margin-top: 0;
+  color: var(--ifm-color-primary);
+}
+
+/* Quick reference cards */
+.quick-ref-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+  margin: 2rem 0;
+}
+
+.quick-ref-card {
+  background: var(--ifm-background-surface-color);
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: 8px;
+  padding: 1rem;
+}
+
+.quick-ref-card h4 {
+  margin-top: 0;
+  color: var(--ifm-color-primary);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .quick-ref-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .row {
+    margin: 0;
+  }
+  
+  .col {
+    padding: 0.5rem;
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "id": "strategies/timeout",
+  "title": "Timeout Strategy",
+  "description": "The Timeout Strategy prevents operations from running indefinitely by cancelling them after a specified duration. This is crucial for maintaining responsive applications and preventing resource exhaustion.",
+  "source": "@site/docs/strategies/timeout.md",
+  "sourceDirName": "strategies",
+  "slug": "/strategies/timeout",
+  "permalink": "/polly_dart/docs/strategies/timeout",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/flutterninja9/polly_dart/tree/main/docs/docs/strategies/timeout.md",
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 4,
+  "frontMatter": {
+    "sidebar_position": 4
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Circuit Breaker Strategy",
+    "permalink": "/polly_dart/docs/strategies/circuit-breaker"
+  },
+  "next": {
+    "title": "Fallback Strategy",
+    "permalink": "/polly_dart/docs/strategies/fallback"
+  }
+}

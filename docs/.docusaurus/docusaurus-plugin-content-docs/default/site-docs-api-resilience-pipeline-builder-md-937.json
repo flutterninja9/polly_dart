@@ -1,0 +1,27 @@
+{
+  "id": "api/resilience-pipeline-builder",
+  "title": "ResiliencePipelineBuilder",
+  "description": "The ResiliencePipelineBuilder class provides a fluent API for constructing resilience pipelines with multiple strategies.",
+  "source": "@site/docs/api/resilience-pipeline-builder.md",
+  "sourceDirName": "api",
+  "slug": "/api/resilience-pipeline-builder",
+  "permalink": "/polly_dart/docs/api/resilience-pipeline-builder",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/flutterninja9/polly_dart/tree/main/docs/docs/api/resilience-pipeline-builder.md",
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 2,
+  "frontMatter": {
+    "sidebar_position": 2
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "ResiliencePipeline",
+    "permalink": "/polly_dart/docs/api/resilience-pipeline"
+  },
+  "next": {
+    "title": "ResilienceContext",
+    "permalink": "/polly_dart/docs/api/resilience-context"
+  }
+}

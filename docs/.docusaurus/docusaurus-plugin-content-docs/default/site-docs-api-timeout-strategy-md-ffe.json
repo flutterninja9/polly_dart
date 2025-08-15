@@ -1,0 +1,27 @@
+{
+  "id": "api/timeout-strategy",
+  "title": "TimeoutStrategy",
+  "description": "The TimeoutStrategy cancels operations that exceed a specified time limit, preventing resource exhaustion and improving system responsiveness.",
+  "source": "@site/docs/api/timeout-strategy.md",
+  "sourceDirName": "api",
+  "slug": "/api/timeout-strategy",
+  "permalink": "/polly_dart/docs/api/timeout-strategy",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/flutterninja9/polly_dart/tree/main/docs/docs/api/timeout-strategy.md",
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 7,
+  "frontMatter": {
+    "sidebar_position": 7
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "CircuitBreakerStrategy",
+    "permalink": "/polly_dart/docs/api/circuit-breaker-strategy"
+  },
+  "next": {
+    "title": "FallbackStrategy",
+    "permalink": "/polly_dart/docs/api/fallback-strategy"
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "id": "strategies/hedging",
+  "title": "Hedging Strategy",
+  "description": "The Hedging Strategy launches multiple parallel operations against the same resource and returns the result from whichever completes first. This proactive approach reduces tail latency and improves response times when some requests may be slower than others.",
+  "source": "@site/docs/strategies/hedging.md",
+  "sourceDirName": "strategies",
+  "slug": "/strategies/hedging",
+  "permalink": "/polly_dart/docs/strategies/hedging",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/flutterninja9/polly_dart/tree/main/docs/docs/strategies/hedging.md",
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 6,
+  "frontMatter": {
+    "sidebar_position": 6
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Fallback Strategy",
+    "permalink": "/polly_dart/docs/strategies/fallback"
+  },
+  "next": {
+    "title": "Rate Limiter Strategy",
+    "permalink": "/polly_dart/docs/strategies/rate-limiter"
+  }
+}

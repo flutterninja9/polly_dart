@@ -1,0 +1,27 @@
+{
+  "id": "advanced/custom-strategies",
+  "title": "Custom Strategies",
+  "description": "While Polly Dart provides six comprehensive built-in strategies, you might need to create custom strategies for specific scenarios. This guide shows you how to build your own resilience strategies that integrate seamlessly with the Polly Dart pipeline.",
+  "source": "@site/docs/advanced/custom-strategies.md",
+  "sourceDirName": "advanced",
+  "slug": "/advanced/custom-strategies",
+  "permalink": "/polly_dart/docs/advanced/custom-strategies",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/flutterninja9/polly_dart/tree/main/docs/docs/advanced/custom-strategies.md",
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 2,
+  "frontMatter": {
+    "sidebar_position": 2
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Combining Strategies",
+    "permalink": "/polly_dart/docs/advanced/combining-strategies"
+  },
+  "next": {
+    "title": "Monitoring and Observability",
+    "permalink": "/polly_dart/docs/advanced/monitoring"
+  }
+}

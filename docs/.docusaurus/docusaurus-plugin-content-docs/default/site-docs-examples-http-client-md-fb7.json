@@ -1,0 +1,23 @@
+{
+  "id": "examples/http-client",
+  "title": "HTTP Client with Resilience",
+  "description": "This example demonstrates how to build a robust HTTP client using Polly Dart resilience strategies. We'll create a client that handles network failures, service outages, and slow responses gracefully.",
+  "source": "@site/docs/examples/http-client.md",
+  "sourceDirName": "examples",
+  "slug": "/examples/http-client",
+  "permalink": "/polly_dart/docs/examples/http-client",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/flutterninja9/polly_dart/tree/main/docs/docs/examples/http-client.md",
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 1,
+  "frontMatter": {
+    "sidebar_position": 1
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "RateLimiterStrategy",
+    "permalink": "/polly_dart/docs/api/rate-limiter-strategy"
+  }
+}

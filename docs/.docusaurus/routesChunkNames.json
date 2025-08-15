@@ -1,0 +1,283 @@
+{
+  "/polly_dart/__docusaurus/debug-4e5": {
+    "__comp": "__comp---theme-debug-config-23-a-2ff",
+    "__context": {
+      "plugin": "plugin---polly-dart-docusaurus-debugb-38-1aa"
+    }
+  },
+  "/polly_dart/__docusaurus/debug/config-1b3": {
+    "__comp": "__comp---theme-debug-config-23-a-2ff",
+    "__context": {
+      "plugin": "plugin---polly-dart-docusaurus-debugb-38-1aa"
+    }
+  },
+  "/polly_dart/__docusaurus/debug/content-5e5": {
+    "__comp": "__comp---theme-debug-contentba-8-ce7",
+    "__context": {
+      "plugin": "plugin---polly-dart-docusaurus-debugb-38-1aa"
+    },
+    "__props": "__props---polly-dart-docusaurus-debug-contentd-3-e-6ae"
+  },
+  "/polly_dart/__docusaurus/debug/globalData-940": {
+    "__comp": "__comp---theme-debug-global-dataede-0fa",
+    "__context": {
+      "plugin": "plugin---polly-dart-docusaurus-debugb-38-1aa"
+    }
+  },
+  "/polly_dart/__docusaurus/debug/metadata-fcf": {
+    "__comp": "__comp---theme-debug-site-metadata-68-e-3d4",
+    "__context": {
+      "plugin": "plugin---polly-dart-docusaurus-debugb-38-1aa"
+    }
+  },
+  "/polly_dart/__docusaurus/debug/registry-89d": {
+    "__comp": "__comp---theme-debug-registry-679-501",
+    "__context": {
+      "plugin": "plugin---polly-dart-docusaurus-debugb-38-1aa"
+    }
+  },
+  "/polly_dart/__docusaurus/debug/routes-895": {
+    "__comp": "__comp---theme-debug-routes-946-699",
+    "__context": {
+      "plugin": "plugin---polly-dart-docusaurus-debugb-38-1aa"
+    }
+  },
+  "/polly_dart/blog-08c": {
+    "__comp": "__comp---theme-blog-list-pagea-6-a-7ba",
+    "__context": {
+      "plugin": "plugin---polly-dart-blog-369-a0c"
+    },
+    "sidebar": "sidebar---polly-dart-blog-814-296",
+    "items": [
+      {
+        "content": "content---polly-dart-blog-2-c-1-9c9"
+      }
+    ],
+    "__props": "__props---polly-dart-blog-869-5f2"
+  },
+  "/polly_dart/blog/archive-67d": {
+    "__comp": "__comp---theme-blog-archive-page-9-e-4-1d8",
+    "__context": {
+      "plugin": "plugin---polly-dart-blog-369-a0c"
+    },
+    "__props": "__props---polly-dart-blog-archive-943-95a"
+  },
+  "/polly_dart/blog/authors-9ef": {
+    "__comp": "__comp---theme-blog-pages-blog-authors-list-page-621-70c",
+    "__context": {
+      "data": {
+        "blogMetadata": "blogMetadata---polly-dart-blog-authorsace-b8c"
+      },
+      "plugin": "plugin---polly-dart-blog-369-a0c"
+    },
+    "sidebar": "sidebar---polly-dart-blog-814-296",
+    "__props": "__props---polly-dart-blog-authorsd-61-802"
+  },
+  "/polly_dart/blog/introducing-polly-dart-526": {
+    "__comp": "__comp---theme-blog-post-pageccc-cab",
+    "__context": {
+      "data": {
+        "blogMetadata": "blogMetadata---polly-dart-blog-authorsace-b8c"
+      },
+      "plugin": "plugin---polly-dart-blog-369-a0c"
+    },
+    "sidebar": "sidebar---polly-dart-blog-814-296",
+    "content": "content---polly-dart-blog-introducing-polly-dartf-76-0b9"
+  },
+  "/polly_dart/blog/tags-550": {
+    "__comp": "__comp---theme-blog-tags-list-page-01-a-d0b",
+    "__context": {
+      "plugin": "plugin---polly-dart-blog-369-a0c"
+    },
+    "sidebar": "sidebar---polly-dart-blog-814-296",
+    "__props": "__props---polly-dart-blog-tags-97-d-b85"
+  },
+  "/polly_dart/blog/tags/announcement-f48": {
+    "__comp": "__comp---theme-blog-tags-posts-page-687-b6c",
+    "__context": {
+      "plugin": "plugin---polly-dart-blog-369-a0c"
+    },
+    "sidebar": "sidebar---polly-dart-blog-814-296",
+    "items": [
+      {
+        "content": "content---polly-dart-blog-2-c-1-9c9"
+      }
+    ],
+    "__props": "__props---polly-dart-blog-tags-announcement-3-c-5-492"
+  },
+  "/polly_dart/blog/tags/dart-c21": {
+    "__comp": "__comp---theme-blog-tags-posts-page-687-b6c",
+    "__context": {
+      "plugin": "plugin---polly-dart-blog-369-a0c"
+    },
+    "sidebar": "sidebar---polly-dart-blog-814-296",
+    "items": [
+      {
+        "content": "content---polly-dart-blog-2-c-1-9c9"
+      }
+    ],
+    "__props": "__props---polly-dart-blog-tags-dart-827-6f6"
+  },
+  "/polly_dart/blog/tags/flutter-bb8": {
+    "__comp": "__comp---theme-blog-tags-posts-page-687-b6c",
+    "__context": {
+      "plugin": "plugin---polly-dart-blog-369-a0c"
+    },
+    "sidebar": "sidebar---polly-dart-blog-814-296",
+    "items": [
+      {
+        "content": "content---polly-dart-blog-2-c-1-9c9"
+      }
+    ],
+    "__props": "__props---polly-dart-blog-tags-flutterf-83-98f"
+  },
+  "/polly_dart/blog/tags/reliability-560": {
+    "__comp": "__comp---theme-blog-tags-posts-page-687-b6c",
+    "__context": {
+      "plugin": "plugin---polly-dart-blog-369-a0c"
+    },
+    "sidebar": "sidebar---polly-dart-blog-814-296",
+    "items": [
+      {
+        "content": "content---polly-dart-blog-2-c-1-9c9"
+      }
+    ],
+    "__props": "__props---polly-dart-blog-tags-reliability-80-a-ac4"
+  },
+  "/polly_dart/blog/tags/resilience-18b": {
+    "__comp": "__comp---theme-blog-tags-posts-page-687-b6c",
+    "__context": {
+      "plugin": "plugin---polly-dart-blog-369-a0c"
+    },
+    "sidebar": "sidebar---polly-dart-blog-814-296",
+    "items": [
+      {
+        "content": "content---polly-dart-blog-2-c-1-9c9"
+      }
+    ],
+    "__props": "__props---polly-dart-blog-tags-resilience-480-56c"
+  },
+  "/polly_dart/search-0f6": {
+    "__comp": "__comp---theme-search-page-1-a-4-d6f",
+    "__context": {
+      "plugin": "plugin---polly-dart-searchc-14-b14"
+    }
+  },
+  "/polly_dart/docs-d97": {
+    "__comp": "__comp---theme-docs-root-5-e-9-0b6",
+    "__context": {
+      "plugin": "plugin---polly-dart-docsaba-3a7"
+    }
+  },
+  "/polly_dart/docs-3ab": {
+    "__comp": "__comp---theme-doc-version-roota-7-b-5de",
+    "__props": "__props---polly-dart-docs-1-e-5-139"
+  },
+  "/polly_dart/docs-54c": {
+    "__comp": "__comp---theme-doc-roota-94-67a"
+  },
+  "/polly_dart/docs/-27d": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---polly-dart-docs-0-e-3-870"
+  },
+  "/polly_dart/docs/advanced/combining-strategies-1c3": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---polly-dart-docs-advanced-combining-strategies-7-db-4c0"
+  },
+  "/polly_dart/docs/advanced/custom-strategies-035": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---polly-dart-docs-advanced-custom-strategiesdc-7-32c"
+  },
+  "/polly_dart/docs/advanced/monitoring-87a": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---polly-dart-docs-advanced-monitoring-2-a-2-d56"
+  },
+  "/polly_dart/docs/advanced/testing-7cb": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---polly-dart-docs-advanced-testing-01-f-4ee"
+  },
+  "/polly_dart/docs/api/circuit-breaker-strategy-b0f": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---polly-dart-docs-api-circuit-breaker-strategy-1-a-5-bb1"
+  },
+  "/polly_dart/docs/api/fallback-strategy-364": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---polly-dart-docs-api-fallback-strategybaf-283"
+  },
+  "/polly_dart/docs/api/hedging-strategy-7b7": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---polly-dart-docs-api-hedging-strategy-27-e-74b"
+  },
+  "/polly_dart/docs/api/outcome-58b": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---polly-dart-docs-api-outcome-4-db-9f0"
+  },
+  "/polly_dart/docs/api/rate-limiter-strategy-51e": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---polly-dart-docs-api-rate-limiter-strategy-01-d-656"
+  },
+  "/polly_dart/docs/api/resilience-context-1fa": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---polly-dart-docs-api-resilience-context-5-b-4-05c"
+  },
+  "/polly_dart/docs/api/resilience-pipeline-361": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---polly-dart-docs-api-resilience-pipeline-67-c-a6e"
+  },
+  "/polly_dart/docs/api/resilience-pipeline-builder-5d6": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---polly-dart-docs-api-resilience-pipeline-builder-937-418"
+  },
+  "/polly_dart/docs/api/retry-strategy-b5e": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---polly-dart-docs-api-retry-strategye-58-d6e"
+  },
+  "/polly_dart/docs/api/timeout-strategy-794": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---polly-dart-docs-api-timeout-strategyffe-573"
+  },
+  "/polly_dart/docs/examples/http-client-203": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---polly-dart-docs-examples-http-clientfb-7-c4d"
+  },
+  "/polly_dart/docs/getting-started/basic-concepts-fdc": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---polly-dart-docs-getting-started-basic-conceptsd-85-f7e"
+  },
+  "/polly_dart/docs/getting-started/installation-82b": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---polly-dart-docs-getting-started-installation-54-f-993"
+  },
+  "/polly_dart/docs/getting-started/quick-start-ec6": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---polly-dart-docs-getting-started-quick-start-588-837"
+  },
+  "/polly_dart/docs/strategies/circuit-breaker-9f1": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---polly-dart-docs-strategies-circuit-breakerfcb-b3f"
+  },
+  "/polly_dart/docs/strategies/fallback-daa": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---polly-dart-docs-strategies-fallbackb-59-ff2"
+  },
+  "/polly_dart/docs/strategies/hedging-d41": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---polly-dart-docs-strategies-hedgingbdb-9e5"
+  },
+  "/polly_dart/docs/strategies/overview-c19": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---polly-dart-docs-strategies-overview-3-e-4-074"
+  },
+  "/polly_dart/docs/strategies/rate-limiter-dab": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---polly-dart-docs-strategies-rate-limiter-7-cb-c18"
+  },
+  "/polly_dart/docs/strategies/retry-37c": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---polly-dart-docs-strategies-retry-68-c-215"
+  },
+  "/polly_dart/docs/strategies/timeout-0a2": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---polly-dart-docs-strategies-timeout-848-f95"
+  }
+}
