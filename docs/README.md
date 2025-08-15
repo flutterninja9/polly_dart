@@ -1,6 +1,6 @@
 # Polly Dart Documentation
 
-This directory contains the complete documentation website for Polly Dart, built with Docusaurus.
+This directory contains the complete documentation website for Polly Dart, built with Docusaurus. 
 
 ## Documentation Structure
 
