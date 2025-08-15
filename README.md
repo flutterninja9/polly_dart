@@ -7,7 +7,7 @@ A Dart port of [Polly](https://github.com/App-vNext/Polly), the .NET resilience 
 
 ## Features
 
-Polly Dart provides the following resilience strategies: 
+Polly Dart provides the following resilience strategies:
 
 ### Reactive Strategies
 - **Retry**: Automatically retry failed operations with configurable backoff strategies
