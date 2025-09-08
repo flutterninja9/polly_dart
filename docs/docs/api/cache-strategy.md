@@ -17,7 +17,7 @@ Creates a new cache strategy with the specified options.
 
 ---
 
-## CacheStrategyOptions<T>
+## CacheStrategyOptions&lt;T&gt;
 
 Configuration options for the cache strategy.
 
@@ -97,7 +97,7 @@ Abstract interface for cache providers.
 
 ### Methods
 
-#### get<T>
+#### get&lt;T&gt;
 ```dart
 Future<T?> get<T>(String key);
 ```
@@ -109,7 +109,7 @@ Retrieves a value from the cache.
 
 **Returns:** The cached value or `null` if not found or expired.
 
-#### set<T>
+#### set&lt;T&gt;
 ```dart
 Future<void> set<T>(String key, T value, {Duration? ttl});
 ```
@@ -280,31 +280,31 @@ Access to the collected metrics.
 
 ## Type Definitions
 
-### CacheKeyGenerator<T>
+### CacheKeyGenerator&lt;T&gt;
 ```dart
 typedef CacheKeyGenerator<T> = String Function(ResilienceContext context);
 ```
 Function that generates cache keys from resilience context.
 
-### ShouldCachePredicate<T>
+### ShouldCachePredicate&lt;T&gt;
 ```dart
 typedef ShouldCachePredicate<T> = bool Function(Outcome<T> outcome);
 ```
 Predicate function to determine if an outcome should be cached.
 
-### OnCacheHit<T>
+### OnCacheHit&lt;T&gt;
 ```dart
 typedef OnCacheHit<T> = Future<void> Function(OnCacheHitArguments<T> args);
 ```
 Callback function invoked on cache hits.
 
-### OnCacheMiss<T>
+### OnCacheMiss&lt;T&gt;
 ```dart
 typedef OnCacheMiss<T> = Future<void> Function(OnCacheMissArguments<T> args);
 ```
 Callback function invoked on cache misses.
 
-### OnCacheSet<T>
+### OnCacheSet&lt;T&gt;
 ```dart
 typedef OnCacheSet<T> = Future<void> Function(OnCacheSetArguments<T> args);
 ```
@@ -314,7 +314,7 @@ Callback function invoked when setting cache values.
 
 ## Callback Arguments
 
-### OnCacheHitArguments<T>
+### OnCacheHitArguments&lt;T&gt;
 ```dart
 class OnCacheHitArguments<T> {
   final String key;
@@ -323,7 +323,7 @@ class OnCacheHitArguments<T> {
 }
 ```
 
-### OnCacheMissArguments<T>
+### OnCacheMissArguments&lt;T&gt;
 ```dart
 class OnCacheMissArguments<T> {
   final String key;
@@ -331,7 +331,7 @@ class OnCacheMissArguments<T> {
 }
 ```
 
-### OnCacheSetArguments<T>
+### OnCacheSetArguments&lt;T&gt;
 ```dart
 class OnCacheSetArguments<T> {
   final String key;
@@ -347,13 +347,13 @@ class OnCacheSetArguments<T> {
 
 The cache strategy integrates with `ResiliencePipelineBuilder` through extension methods:
 
-### addCache<T>
+### addCache&lt;T&gt;
 ```dart
 ResiliencePipelineBuilder addCache<T>([CacheStrategyOptions<T>? options]);
 ```
 Adds a cache strategy to the pipeline with custom options.
 
-### addMemoryCache<T>
+### addMemoryCache&lt;T&gt;
 ```dart
 ResiliencePipelineBuilder addMemoryCache<T>({
   Duration? ttl,
@@ -363,7 +363,7 @@ ResiliencePipelineBuilder addMemoryCache<T>({
 ```
 Adds a memory cache strategy with simple configuration.
 
-### addCacheWithKeyGenerator<T>
+### addCacheWithKeyGenerator&lt;T&gt;
 ```dart
 ResiliencePipelineBuilder addCacheWithKeyGenerator<T>({
   required CacheProvider cache,

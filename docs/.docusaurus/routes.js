@@ -94,15 +94,15 @@ export default [
   },
   {
     path: '/',
-    component: ComponentCreator('/', '9aa'),
+    component: ComponentCreator('/', '0f7'),
     routes: [
       {
         path: '/',
-        component: ComponentCreator('/', 'cf9'),
+        component: ComponentCreator('/', '1fc'),
         routes: [
           {
             path: '/',
-            component: ComponentCreator('/', '175'),
+            component: ComponentCreator('/', '8bd'),
             routes: [
               {
                 path: '/advanced/combining-strategies',
@@ -125,6 +125,12 @@ export default [
               {
                 path: '/advanced/testing',
                 component: ComponentCreator('/advanced/testing', '672'),
+                exact: true,
+                sidebar: "tutorialSidebar"
+              },
+              {
+                path: '/api/cache-strategy',
+                component: ComponentCreator('/api/cache-strategy', '529'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
@@ -189,6 +195,12 @@ export default [
                 sidebar: "tutorialSidebar"
               },
               {
+                path: '/examples/cache',
+                component: ComponentCreator('/examples/cache', '6b8'),
+                exact: true,
+                sidebar: "tutorialSidebar"
+              },
+              {
                 path: '/examples/http-client',
                 component: ComponentCreator('/examples/http-client', 'af4'),
                 exact: true,
@@ -215,6 +227,12 @@ export default [
               {
                 path: '/intro',
                 component: ComponentCreator('/intro', '9fa'),
+                exact: true,
+                sidebar: "tutorialSidebar"
+              },
+              {
+                path: '/strategies/cache',
+                component: ComponentCreator('/strategies/cache', 'b71'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },

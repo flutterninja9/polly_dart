@@ -163,17 +163,17 @@
       "plugin": "plugin---searchc-14-0ea"
     }
   },
-  "/-9aa": {
+  "/-0f7": {
     "__comp": "__comp---theme-docs-root-5-e-9-0b6",
     "__context": {
       "plugin": "plugin---aba-d70"
     }
   },
-  "/-cf9": {
+  "/-1fc": {
     "__comp": "__comp---theme-doc-version-roota-7-b-5de",
     "__props": "__props---22-d-307"
   },
-  "/-175": {
+  "/-8bd": {
     "__comp": "__comp---theme-doc-roota-94-67a"
   },
   "/advanced/combining-strategies-584": {
@@ -191,6 +191,10 @@
   "/advanced/testing-672": {
     "__comp": "__comp---theme-doc-item-178-a40",
     "content": "content---advanced-testing-01-f-5ca"
+  },
+  "/api/cache-strategy-529": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---api-cache-strategy-155-e3b"
   },
   "/api/circuit-breaker-strategy-3d9": {
     "__comp": "__comp---theme-doc-item-178-a40",
@@ -232,6 +236,10 @@
     "__comp": "__comp---theme-doc-item-178-a40",
     "content": "content---api-timeout-strategyffe-544"
   },
+  "/examples/cache-6b8": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---examples-cache-15-b-87b"
+  },
   "/examples/http-client-af4": {
     "__comp": "__comp---theme-doc-item-178-a40",
     "content": "content---examples-http-clientfb-7-04e"
@@ -251,6 +259,10 @@
   "/intro-9fa": {
     "__comp": "__comp---theme-doc-item-178-a40",
     "content": "content---intro-0-e-3-7b8"
+  },
+  "/strategies/cache-b71": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---strategies-cache-4-b-5-e5f"
   },
   "/strategies/circuit-breaker-316": {
     "__comp": "__comp---theme-doc-item-178-a40",

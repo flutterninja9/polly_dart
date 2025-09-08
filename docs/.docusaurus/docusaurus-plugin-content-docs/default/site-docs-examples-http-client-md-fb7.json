@@ -17,7 +17,11 @@
   },
   "sidebar": "tutorialSidebar",
   "previous": {
-    "title": "RateLimiterStrategy",
-    "permalink": "/api/rate-limiter-strategy"
+    "title": "Cache Strategy",
+    "permalink": "/api/cache-strategy"
+  },
+  "next": {
+    "title": "Cache Strategy Examples",
+    "permalink": "/examples/cache"
   }
 }

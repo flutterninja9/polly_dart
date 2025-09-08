@@ -31,6 +31,11 @@
               "sidebar": "tutorialSidebar"
             },
             {
+              "id": "api/cache-strategy",
+              "path": "/api/cache-strategy",
+              "sidebar": "tutorialSidebar"
+            },
+            {
               "id": "api/circuit-breaker-strategy",
               "path": "/api/circuit-breaker-strategy",
               "sidebar": "tutorialSidebar"
@@ -81,6 +86,11 @@
               "sidebar": "tutorialSidebar"
             },
             {
+              "id": "examples/cache",
+              "path": "/examples/cache",
+              "sidebar": "tutorialSidebar"
+            },
+            {
               "id": "examples/http-client",
               "path": "/examples/http-client",
               "sidebar": "tutorialSidebar"
@@ -107,6 +117,11 @@
             {
               "id": "intro",
               "path": "/intro",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "strategies/cache",
+              "path": "/strategies/cache",
               "sidebar": "tutorialSidebar"
             },
             {

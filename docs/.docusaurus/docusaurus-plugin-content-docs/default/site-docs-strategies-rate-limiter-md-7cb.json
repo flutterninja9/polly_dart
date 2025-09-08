@@ -21,7 +21,7 @@
     "permalink": "/strategies/hedging"
   },
   "next": {
-    "title": "Combining Strategies",
-    "permalink": "/advanced/combining-strategies"
+    "title": "Cache Strategy",
+    "permalink": "/strategies/cache"
   }
 }

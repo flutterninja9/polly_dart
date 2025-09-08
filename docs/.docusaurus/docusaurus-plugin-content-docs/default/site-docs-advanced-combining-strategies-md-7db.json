@@ -17,8 +17,8 @@
   },
   "sidebar": "tutorialSidebar",
   "previous": {
-    "title": "Rate Limiter Strategy",
-    "permalink": "/strategies/rate-limiter"
+    "title": "Cache Strategy",
+    "permalink": "/strategies/cache"
   },
   "next": {
     "title": "Custom Strategies",

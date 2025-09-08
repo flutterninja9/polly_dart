@@ -21,7 +21,7 @@
     "permalink": "/api/hedging-strategy"
   },
   "next": {
-    "title": "HTTP Client with Resilience",
-    "permalink": "/examples/http-client"
+    "title": "Cache Strategy",
+    "permalink": "/api/cache-strategy"
   }
 }
