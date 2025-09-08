@@ -1,6 +1,7 @@
 ## 0.0.6
 
 - Add cache strategy support
+- Fix version in the readme installation example
 
 ## 0.0.5
 
