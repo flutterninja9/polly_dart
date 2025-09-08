@@ -36,6 +36,7 @@ const sidebars = {
         'strategies/fallback',
         'strategies/hedging',
         'strategies/rate-limiter',
+        'strategies/cache',
       ],
     },
     {
@@ -62,6 +63,7 @@ const sidebars = {
         'api/fallback-strategy',
         'api/hedging-strategy',
         'api/rate-limiter-strategy',
+        'api/cache-strategy',
       ],
     },
     {
@@ -69,6 +71,7 @@ const sidebars = {
       label: 'Examples',
       items: [
         'examples/http-client',
+        'examples/cache',
       ],
     },
   ],

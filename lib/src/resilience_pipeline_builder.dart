@@ -1,4 +1,8 @@
+import 'caching/cache_provider.dart';
+import 'caching/memory_cache_provider.dart';
+import 'resilience_context.dart';
 import 'resilience_pipeline.dart';
+import 'strategies/cache_strategy.dart';
 import 'strategies/circuit_breaker_strategy.dart';
 import 'strategies/fallback_strategy.dart';
 import 'strategies/hedging_strategy.dart';
@@ -71,6 +75,73 @@ class ResiliencePipelineBuilder {
     );
     _strategies.add(RateLimiterStrategy(options));
     return this;
+  }
+
+  /// Adds a cache strategy to the pipeline.
+  ///
+  /// Example:
+  /// ```dart
+  /// final cache = MemoryCacheProvider();
+  /// final options = CacheStrategyOptions<String>(cache: cache);
+  /// builder.addCache(options);
+  /// ```
+  ResiliencePipelineBuilder addCache<T>(CacheStrategyOptions<T> options) {
+    _strategies.add(CacheStrategy<T>(options));
+    return this;
+  }
+
+  /// Adds a memory cache strategy with simple configuration.
+  ///
+  /// This is a convenience method for adding in-memory caching with basic options.
+  ///
+  /// Example:
+  /// ```dart
+  /// builder.addMemoryCache<String>(
+  ///   ttl: Duration(minutes: 5),
+  ///   maxSize: 1000,
+  /// );
+  /// ```
+  ResiliencePipelineBuilder addMemoryCache<T>({
+    Duration? ttl,
+    int? maxSize,
+    Duration cleanupInterval = const Duration(minutes: 5),
+  }) {
+    final provider = MemoryCacheProvider(
+      defaultTtl: ttl,
+      maxSize: maxSize,
+      cleanupInterval: cleanupInterval,
+    );
+
+    final options = CacheStrategyOptions<T>(
+      cache: provider,
+      ttl: ttl,
+    );
+
+    return addCache(options);
+  }
+
+  /// Adds a cache strategy with custom key generator.
+  ///
+  /// Example:
+  /// ```dart
+  /// builder.addCacheWithKeyGenerator<String>(
+  ///   cache: myCache,
+  ///   keyGenerator: (context) => 'user:${context.properties['userId']}',
+  ///   ttl: Duration(minutes: 10),
+  /// );
+  /// ```
+  ResiliencePipelineBuilder addCacheWithKeyGenerator<T>({
+    required CacheProvider cache,
+    required String Function(ResilienceContext) keyGenerator,
+    Duration? ttl,
+  }) {
+    final options = CacheStrategyOptions<T>(
+      cache: cache,
+      keyGenerator: keyGenerator,
+      ttl: ttl,
+    );
+
+    return addCache(options);
   }
 
   /// Adds a custom strategy to the pipeline.

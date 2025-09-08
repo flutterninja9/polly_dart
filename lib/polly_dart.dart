@@ -24,16 +24,22 @@
 /// ```
 library polly_dart;
 
+// Cache components
+export 'src/caching/cache_callbacks.dart';
+export 'src/caching/cache_metrics.dart';
+export 'src/caching/cache_provider.dart';
+export 'src/caching/memory_cache_provider.dart';
 // Core types
 export 'src/outcome.dart';
 export 'src/resilience_context.dart';
 export 'src/resilience_pipeline.dart';
 export 'src/resilience_pipeline_builder.dart';
+// Strategies
+export 'src/strategies/cache_strategy.dart';
 export 'src/strategies/circuit_breaker_strategy.dart';
 export 'src/strategies/fallback_strategy.dart';
 export 'src/strategies/hedging_strategy.dart';
 export 'src/strategies/rate_limiter_strategy.dart';
-// Strategies
 export 'src/strategies/retry_strategy.dart';
 export 'src/strategies/timeout_strategy.dart';
 export 'src/strategy.dart';
