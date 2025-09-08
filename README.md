@@ -29,7 +29,7 @@ Add the dependency to your `pubspec.yaml`:
 
 ```yaml
 dependencies:
-  polly_dart: ^0.1.0
+  polly_dart: ^0.0.6
 ```
 
 ### Basic Usage

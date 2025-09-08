@@ -1,3 +1,7 @@
+## 0.0.6
+
+- Add cache strategy support
+
 ## 0.0.5
 
 - ReFormat the changelog for consistency
