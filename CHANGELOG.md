@@ -1,3 +1,7 @@
+## 0.0.7
+
+- Update README with examples of cache strategy usage
+
 ## 0.0.6
 
 - Add cache strategy support
