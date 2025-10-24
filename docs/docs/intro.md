@@ -45,7 +45,10 @@ final pipeline = ResiliencePipelineBuilder()
     .addFallback(FallbackStrategyOptions.withValue('default'))
     .build();
 
-final result = await pipeline.execute(() => apiCall());
+final result = await pipeline.execute(
+  (context) => apiCall(),
+  context: ResilienceContext(operationKey: 'api-call'),
+);
 ```
 
 ### 🏗️ **Composable Architecture**

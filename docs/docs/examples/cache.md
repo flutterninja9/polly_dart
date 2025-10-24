@@ -29,12 +29,18 @@ void main() async {
 
   // First call - executes operation and caches result
   print('First call:');
-  final result1 = await pipeline.execute(() async => expensiveOperation());
+  final result1 = await pipeline.execute(
+    (context) async => expensiveOperation(),
+    context: ResilienceContext(operationKey: 'expensive-op'),
+  );
   print('Result: $result1');
 
   // Second call - returns cached result instantly
   print('\nSecond call (from cache):');
-  final result2 = await pipeline.execute(() async => expensiveOperation());
+  final result2 = await pipeline.execute(
+    (context) async => expensiveOperation(),
+    context: ResilienceContext(operationKey: 'expensive-op'),
+  );
   print('Result: $result2');
 }
 ```
@@ -67,7 +73,10 @@ void main() async {
       .build();
 
   // Usage remains the same
-  final response = await pipeline.execute(() => callApi());
+  final response = await pipeline.execute(
+    (context) => callApi(),
+    context: ResilienceContext(operationKey: 'api-call'),
+  );
 }
 
 class ApiResponse {
@@ -105,13 +114,15 @@ void main() async {
       .build();
 
   Future<UserProfile> getUserProfile(String userId) async {
-    final context = ResilienceContext()..setProperty('userId', userId);
+    final context = ResilienceContext(operationKey: 'user-profile')
+      ..setProperty('userId', userId);
     
     return await pipeline.execute(
-      () async {
+      (context) async {
+        final userId = context.getProperty<String>('userId');
         print('Fetching profile for user $userId');
         await Future.delayed(Duration(milliseconds: 300));
-        return UserProfile(userId, 'User $userId');
+        return UserProfile(userId!, 'User $userId');
       },
       context: context,
     );
@@ -149,16 +160,19 @@ Future<SearchResults> searchWithCache(String query, int page, int pageSize) asyn
       ))
       .build();
 
-  final context = ResilienceContext()
+  final context = ResilienceContext(operationKey: 'search')
     ..setProperty('query', query)
     ..setProperty('page', page)
     ..setProperty('pageSize', pageSize);
 
   return await pipeline.execute(
-    () async {
+    (context) async {
+      final query = context.getProperty<String>('query');
+      final page = context.getProperty<int>('page');
+      final pageSize = context.getProperty<int>('pageSize');
       print('Searching: $query (page $page, size $pageSize)');
       await Future.delayed(Duration(milliseconds: 400));
-      return SearchResults(query, page, ['Result 1', 'Result 2']);
+      return SearchResults(query!, page!, ['Result 1', 'Result 2']);
     },
     context: context,
   );
@@ -211,17 +225,21 @@ void main() async {
     return 'API Success!';
   }
 
-  // First call: will retry and cache result
-  final result1 = await pipeline.execute(() => unreliableApiCall());
-  print('First call result: $result1\n');
+  // First call - executes operation and caches result
+  print('First call:');
+  final result1 = await pipeline.execute(
+    (context) => unreliableApiCall(),
+    context: ResilienceContext(operationKey: 'api-call'),
+  );
+  print('Result: $result1');
 
-  // Reset attempts for demonstration
-  attempts = 0;
-
-  // Second call: uses cache, no retries needed
-  final result2 = await pipeline.execute(() => unreliableApiCall());
-  print('Second call result: $result2');
-  print('Attempts for second call: $attempts (should be 0)');
+  // Second call - returns cached result instantly
+  print('\nSecond call (from cache):');
+  final result2 = await pipeline.execute(
+    (context) => unreliableApiCall(),
+    context: ResilienceContext(operationKey: 'api-call'),
+  );
+  print('Result: $result2');
 }
 ```
 
@@ -264,7 +282,10 @@ void main() async {
   for (int i = 1; i <= 5; i++) {
     try {
       print('\n--- Call $i ---');
-      final result = await pipeline.execute(() => callExternalService());
+      final result = await pipeline.execute(
+        (context) => callExternalService(),
+        context: ResilienceContext(operationKey: 'external-service'),
+      );
       print('Success: ${result.data}');
     } catch (e) {
       print('Failed: $e');
@@ -306,7 +327,10 @@ void main() async {
 
   // Execute multiple operations
   for (int i = 1; i <= 10; i++) {
-    await pipeline.execute(() => operation());
+    await pipeline.execute(
+      (context) => operation(),
+      context: ResilienceContext(operationKey: 'operation'),
+    );
     
     if (i == 5) {
       // Clear cache midway to show miss behavior
@@ -393,7 +417,10 @@ void main() async {
 
   // Execute operations
   for (int i = 1; i <= 5; i++) {
-    await pipeline.execute(() => operation());
+    await pipeline.execute(
+      (context) => operation(),
+      context: ResilienceContext(operationKey: 'operation'),
+    );
   }
 
   metrics.printReport();
@@ -441,12 +468,16 @@ class ApiClient {
       .build();
 
   Future<Map<String, dynamic>> get(String endpoint, {Map<String, String>? params}) async {
-    final context = ResilienceContext()
+    final context = ResilienceContext(operationKey: 'api-call')
       ..setProperty('endpoint', endpoint)
       ..setProperty('params', params ?? <String, String>{});
 
     return await _pipeline.execute(
-      () => _makeApiCall(endpoint, params),
+      (context) {
+        final endpoint = context.getProperty<String>('endpoint');
+        final params = context.getProperty<Map<String, String>>('params');
+        return _makeApiCall(endpoint!, params);
+      },
       context: context,
     );
   }
@@ -515,12 +546,16 @@ class DatabaseClient {
       .build();
 
   Future<List<Map<String, dynamic>>> query(String sql, [List<dynamic>? params]) async {
-    final context = ResilienceContext()
+    final context = ResilienceContext(operationKey: 'db-query')
       ..setProperty('sql', sql)
       ..setProperty('params', params ?? []);
 
     return await _pipeline.execute(
-      () => _executeQuery(sql, params),
+      (context) {
+        final sql = context.getProperty<String>('sql');
+        final params = context.getProperty<List<dynamic>>('params');
+        return _executeQuery(sql!, params);
+      },
       context: context,
     );
   }

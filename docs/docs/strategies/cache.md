@@ -43,11 +43,17 @@ Future<String> expensiveApiCall() async {
 }
 
 // First call - executes the operation and caches the result
-final result1 = await pipeline.execute(expensiveApiCall);
+final result1 = await pipeline.execute(
+  (context) => expensiveApiCall(),
+  context: ResilienceContext(operationKey: 'api-call'),
+);
 print(result1); // Output: API Result
 
 // Second call - returns cached result without executing operation
-final result2 = await pipeline.execute(expensiveApiCall);
+final result2 = await pipeline.execute(
+  (context) => expensiveApiCall(),
+  context: ResilienceContext(operationKey: 'api-call'),
+);
 print(result2); // Output: API Result (from cache)
 ```
 
@@ -128,7 +134,10 @@ By default, the cache uses the `operationKey` from the resilience context:
 
 ```dart
 final context = ResilienceContext(operationKey: 'get-user-profile');
-final result = await pipeline.execute(operation, context: context);
+final result = await pipeline.execute(
+  (context) => operation(),
+  context: context,
+);
 ```
 
 ### Custom Key Generation
@@ -148,12 +157,16 @@ final pipeline = ResiliencePipelineBuilder()
     .build();
 
 // Usage with context properties
-final context = ResilienceContext()
+final context = ResilienceContext(operationKey: 'user-profile')
   ..setProperty('userId', '12345')
   ..setProperty('includeDetails', true);
 
 final userProfile = await pipeline.execute(
-  () => getUserProfile('12345', includeDetails: true),
+  (context) {
+    final userId = context.getProperty<String>('userId');
+    final includeDetails = context.getProperty<bool>('includeDetails') ?? false;
+    return getUserProfile(userId!, includeDetails: includeDetails);
+  },
   context: context,
 );
 ```
@@ -382,7 +395,10 @@ final pipeline = ResiliencePipelineBuilder()
     .build();
 
 // This will always succeed, even if cache fails
-final result = await pipeline.execute(() => 'Important result');
+final result = await pipeline.execute(
+  (context) => 'Important result',
+  context: ResilienceContext(operationKey: 'important-operation'),
+);
 ```
 
 ## Best Practices

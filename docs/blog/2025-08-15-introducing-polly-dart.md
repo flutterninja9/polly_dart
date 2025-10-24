@@ -53,7 +53,10 @@ final pipeline = ResiliencePipelineBuilder()
     .build();
 
 // Clean, declarative resilience
-final result = await pipeline.execute(() => apiCall());
+final result = await pipeline.execute(
+  (context) => apiCall(),
+  context: ResilienceContext(operationKey: 'api-call'),
+);
 ```
 
 ### 2. Composability and Flexibility
@@ -156,7 +159,10 @@ final pipeline = ResiliencePipelineBuilder()
     .addTimeout(Duration(seconds: 30))
     .build();
 
-final result = await pipeline.execute(() => yourOperation());
+final result = await pipeline.execute(
+  (context) => yourOperation(),
+  context: ResilienceContext(operationKey: 'your-operation'),
+);
 ```
 
 ## What's Next

@@ -1203,7 +1203,10 @@ void main() {
 ```dart
 // ❌ Bad: Swallowing rate limit exceptions
 try {
-  await pipeline.execute(operation);
+  await pipeline.execute(
+    operation,
+    context: ResilienceContext(operationKey: 'my-operation'),
+  );
 } catch (RateLimiterRejectedException) {
   // Ignoring without proper handling
 }
@@ -1227,9 +1230,15 @@ try {
 ### Graceful Degradation
 ```dart
 try {
-  return await rateLimitedPipeline.execute(expensiveOperation);
+  return await rateLimitedPipeline.execute(
+    expensiveOperation,
+    context: ResilienceContext(operationKey: 'expensive-operation'),
+  );
 } on RateLimiterRejectedException {
-  return await fallbackPipeline.execute(cheaperOperation);
+  return await fallbackPipeline.execute(
+    cheaperOperation,
+    context: ResilienceContext(operationKey: 'cheaper-operation'),
+  );
 }
 ```
 

@@ -436,7 +436,10 @@ final pipeline = ResiliencePipelineBuilder()
 
 ```dart
 try {
-  final result = await pipeline.execute(operation);
+  final result = await pipeline.execute(
+    operation,
+    context: ResilienceContext(operationKey: 'rate-limited-operation'),
+  );
   return result;
 } on RateLimitExceededException catch (e) {
   // Handle rate limit specifically
@@ -460,12 +463,21 @@ test('should enforce rate limits', () async {
   ));
   
   // First two calls should succeed
-  await pipeline.execute(mockOperation);
-  await pipeline.execute(mockOperation);
+  await pipeline.execute(
+    mockOperation,
+    context: ResilienceContext(operationKey: 'test-operation'),
+  );
+  await pipeline.execute(
+    mockOperation,
+    context: ResilienceContext(operationKey: 'test-operation'),
+  );
   
   // Third call should be rate limited
   expect(
-    () => pipeline.execute(mockOperation),
+    () => pipeline.execute(
+      mockOperation,
+      context: ResilienceContext(operationKey: 'test-operation'),
+    ),
     throwsA(isA<RateLimitExceededException>()),
   );
 });

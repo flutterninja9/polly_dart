@@ -345,7 +345,10 @@ await pipeline.execute((context) async {
 ```dart
 // ❌ Bad: Hiding all errors
 try {
-  await pipeline.execute(operation);
+  await pipeline.execute(
+    operation,
+    context: ResilienceContext(operationKey: 'my-operation'),
+  );
 } catch (e) {
   // Don't just ignore all exceptions
 }
@@ -363,9 +366,18 @@ final pipeline = ResiliencePipelineBuilder()
 
 // Multiple concurrent executions
 final futures = [
-  pipeline.execute(() => operation1()),
-  pipeline.execute(() => operation2()),
-  pipeline.execute(() => operation3()),
+  pipeline.execute(
+    (context) => operation1(),
+    context: ResilienceContext(operationKey: 'operation1'),
+  ),
+  pipeline.execute(
+    (context) => operation2(),
+    context: ResilienceContext(operationKey: 'operation2'),
+  ),
+  pipeline.execute(
+    (context) => operation3(),
+    context: ResilienceContext(operationKey: 'operation3'),
+  ),
 ];
 
 final results = await Future.wait(futures);

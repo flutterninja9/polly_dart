@@ -879,10 +879,16 @@ metrics.incrementCounter('orders.processed', tags: {
 **Over-Monitor Low-Value Operations**
 ```dart
 // ❌ Bad: Monitoring every small operation
-await pipeline.execute(() => calculateTax(amount));  // Too granular
+await pipeline.execute(
+  (context) => calculateTax(amount),
+  context: ResilienceContext(operationKey: 'calculate-tax'),
+);  // Too granular
 
 // ✅ Good: Monitor significant business operations
-await pipeline.execute(() => processPayment(paymentData));
+await pipeline.execute(
+  (context) => processPayment(paymentData),
+  context: ResilienceContext(operationKey: 'process-payment'),
+);
 ```
 
 **Block on Metrics Collection**

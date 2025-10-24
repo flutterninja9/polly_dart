@@ -233,13 +233,19 @@ class ApiService {
       .addTimeout(Duration(seconds: 30))
       .build();
       
-  Future<Data> fetchData() => _pipeline.execute(() => _httpGet('/data'));
+  Future<Data> fetchData() => _pipeline.execute(
+    (context) => _httpGet('/data'),
+    context: ResilienceContext(operationKey: 'fetch-data'),
+  );
 }
 
 // ❌ Bad: Creating pipelines per operation
 Future<Data> fetchData() {
   final pipeline = ResiliencePipelineBuilder().addRetry().build(); // Don't do this
-  return pipeline.execute(() => _httpGet('/data'));
+  return pipeline.execute(
+    (context) => _httpGet('/data'),
+    context: ResilienceContext(operationKey: 'fetch-data'),
+  );
 }
 ```
 
