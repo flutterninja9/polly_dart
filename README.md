@@ -22,6 +22,7 @@ Polly Dart provides the following resilience strategies:
 ### Proactive Strategies  
 - **Timeout**: Cancel operations that take too long
 - **Rate Limiter**: Control the rate of operations to prevent overload
+- **Cache**: Store and reuse results of expensive operations to improve performance
 
 ## Quick Start
 
@@ -29,7 +30,7 @@ Add the dependency to your `pubspec.yaml`:
 
 ```yaml
 dependencies:
-  polly_dart: ^0.0.6
+  polly_dart: <latest>
 ```
 
 ### Basic Usage
@@ -197,6 +198,69 @@ class _LikeButtonState extends State<LikeButton> {
     return IconButton(
       onPressed: _handleLike,
       icon: Icon(Icons.favorite),
+    );
+  }
+}
+```
+
+#### 4. API Response Caching
+
+```dart
+class UserProfileService {
+  static final _pipeline = ResiliencePipelineBuilder()
+      // Cache user profiles for 5 minutes
+      .addMemoryCache<UserProfile>(
+        ttl: Duration(minutes: 5),
+        maxSize: 1000,
+      )
+      // Retry on network failures
+      .addRetry(RetryStrategyOptions(
+        maxRetryAttempts: 2,
+        delay: Duration(milliseconds: 500),
+      ))
+      // Timeout for slow requests
+      .addTimeout(Duration(seconds: 10))
+      .build();
+
+  static Future<UserProfile> getUserProfile(String userId) async {
+    return await _pipeline.execute(
+      (context) async {
+        print('Fetching user profile for $userId from API');
+        
+        final response = await http.get(
+          Uri.parse('https://api.example.com/users/$userId'),
+          headers: {'Authorization': 'Bearer $token'},
+        );
+
+        if (response.statusCode == 200) {
+          final data = json.decode(response.body);
+          return UserProfile.fromJson(data);
+        } else {
+          throw Exception('Failed to load user profile');
+        }
+      },
+      context: ResilienceContext(operationKey: 'user-profile-$userId'),
+    );
+  }
+
+  // This will hit the cache if called within 5 minutes
+  static Future<UserProfile> getCachedUserProfile(String userId) async {
+    return await getUserProfile(userId); // Same operation key = cache hit
+  }
+}
+
+class UserProfile {
+  final String id;
+  final String name;
+  final String email;
+  
+  UserProfile({required this.id, required this.name, required this.email});
+  
+  factory UserProfile.fromJson(Map<String, dynamic> json) {
+    return UserProfile(
+      id: json['id'],
+      name: json['name'],
+      email: json['email'],
     );
   }
 }
