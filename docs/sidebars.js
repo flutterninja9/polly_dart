@@ -68,6 +68,15 @@ const sidebars = {
     },
     {
       type: 'category',
+      label: 'Extensions',
+      items: [
+        'extensions/overview',
+        'extensions/polly-dart-http',
+        'extensions/polly-dart-dio',
+      ],
+    },
+    {
+      type: 'category',
       label: 'Examples',
       items: [
         'examples/http-client',
