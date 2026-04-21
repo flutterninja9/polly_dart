@@ -95,6 +95,34 @@ void main() {
         expect(copy.attemptNumber, equals(3));
         expect(copy.isCancellationRequested, isFalse);
       });
+
+      test('cancellationToken reflects context cancellation state', () {
+        final context = ResilienceContext();
+        expect(context.cancellationToken.isCancelled, isFalse);
+        context.cancel();
+        expect(context.cancellationToken.isCancelled, isTrue);
+      });
+
+      test('copy() propagates parent cancellation to child', () async {
+        final parent = ResilienceContext();
+        final child = parent.copy();
+
+        expect(child.isCancellationRequested, isFalse);
+
+        parent.cancel();
+        await Future.microtask(() {});
+
+        expect(child.isCancellationRequested, isTrue);
+      });
+
+      test('copy() propagates already-cancelled parent to child immediately',
+          () {
+        final parent = ResilienceContext();
+        parent.cancel();
+        final child = parent.copy();
+
+        expect(child.isCancellationRequested, isTrue);
+      });
     });
 
     group('RetryStrategy', () {

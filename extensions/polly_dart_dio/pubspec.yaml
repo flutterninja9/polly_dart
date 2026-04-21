@@ -1,0 +1,16 @@
+name: polly_dart_dio
+description: Dio adapter for polly_dart — bridges CancellationToken to Dio's CancelToken.
+version: 0.0.1
+homepage: https://polly.anirudhsingh.in/
+repository: https://github.com/flutterninja9/polly_dart
+
+environment:
+  sdk: ^3.5.0
+
+dependencies:
+  dio: ^5.0.0
+  polly_dart: ^0.0.8
+
+dev_dependencies:
+  lints: ^4.0.0
+  test: ^1.24.0
