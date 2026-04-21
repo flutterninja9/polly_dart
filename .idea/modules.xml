@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/melos_polly_dart.iml" filepath="$PROJECT_DIR$/melos_polly_dart.iml" />
+      <module fileurl="file://$PROJECT_DIR$/extensions/polly_dart_dio/melos_polly_dart_dio.iml" filepath="$PROJECT_DIR$/extensions/polly_dart_dio/melos_polly_dart_dio.iml" />
+      <module fileurl="file://$PROJECT_DIR$/extensions/polly_dart_http/melos_polly_dart_http.iml" filepath="$PROJECT_DIR$/extensions/polly_dart_http/melos_polly_dart_http.iml" />
+      <module fileurl="file://$PROJECT_DIR$/melos_polly_dart_workspace.iml" filepath="$PROJECT_DIR$/melos_polly_dart_workspace.iml" />
+    </modules>
+  </component>
+</project>
