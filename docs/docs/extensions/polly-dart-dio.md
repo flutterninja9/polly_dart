@@ -211,6 +211,117 @@ await pipeline.execute((context) async {
 });
 ```
 
+## Using with Retrofit
+
+[Retrofit for Dart](https://pub.dev/packages/retrofit) generates type-safe API clients on top of Dio. Because `toDioCancelToken()` returns a plain Dio `CancelToken`, Retrofit understands it natively — no adapter or wrapper needed.
+
+Add a `@CancelRequest()` parameter to any endpoint you want to be cancellable:
+
+```dart
+import 'package:dio/dio.dart';
+import 'package:retrofit/retrofit.dart';
+
+part 'api_service.g.dart';
+
+@RestApi(baseUrl: 'https://api.example.com')
+abstract class ApiService {
+  factory ApiService(Dio dio, {String baseUrl}) = _ApiService;
+
+  @GET('/users')
+  Future<List<User>> getUsers({@CancelRequest() CancelToken? cancelToken});
+
+  @POST('/users')
+  Future<User> createUser(
+    @Body() Map<String, dynamic> body, {
+    @CancelRequest() CancelToken? cancelToken,
+  });
+}
+```
+
+Then inside a pipeline execution:
+
+```dart
+final users = await pipeline.execute((context) async {
+  return apiService.getUsers(
+    cancelToken: context.cancellationToken.toDioCancelToken(),
+  );
+});
+```
+
+That's the entire integration. The only one-time cost is adding `@CancelRequest() CancelToken? cancelToken` to each endpoint and re-running `build_runner`.
+
+## Flutter: cancelling on screen navigation (Cubit)
+
+A common Flutter pattern — user navigates away mid-request and the in-flight call should be aborted. The natural hook is `Cubit.close()`, which Flutter calls automatically when the `BlocProvider` disposes.
+
+```dart
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:dio/dio.dart';
+import 'package:polly_dart/polly_dart.dart';
+import 'package:polly_dart_dio/polly_dart_dio.dart';
+
+class UserCubit extends Cubit<UserState> {
+  final ApiService _apiService;
+  final ResiliencePipeline _pipeline;
+  ResilienceContext? _activeContext;
+
+  UserCubit(this._apiService, this._pipeline) : super(UserInitial());
+
+  Future<void> loadUsers() async {
+    // Cancel any previous in-flight call before starting a new one.
+    // Safe to call even if the previous request already finished.
+    _activeContext?.cancel();
+    final context = ResilienceContext();
+    _activeContext = context;
+
+    emit(UserLoading());
+    try {
+      final users = await _pipeline.execute(
+        (ctx) => _apiService.getUsers(
+          cancelToken: ctx.cancellationToken.toDioCancelToken(),
+        ),
+        context: context,
+      );
+      emit(UserLoaded(users));
+    } on DioException catch (e) {
+      // Screen is gone — swallow the signal, no stale state emitted.
+      if (e.type == DioExceptionType.cancel) return;
+      emit(UserError(e.message ?? 'Request failed'));
+    } on TimeoutRejectedException {
+      emit(UserError('Request timed out'));
+    }
+  }
+
+  @override
+  Future<void> close() {
+    _activeContext?.cancel(); // abort any in-flight request
+    return super.close();
+  }
+}
+```
+
+### What happens when the user navigates away
+
+```
+User swaps Screen A → Screen B
+  └── Flutter disposes Screen A's widget tree
+        └── BlocProvider calls cubit.close()
+              └── _activeContext.cancel()
+                    └── CancellationToken.whenCancelled completes
+                          └── toDioCancelToken() listener fires
+                                └── Dio closes the socket
+                                      └── DioException.cancel thrown
+                                            └── caught silently — no stale emit
+```
+
+### Why `_activeContext` is per-request, not per-cubit
+
+Holding a single context at the cubit level would permanently cancel it after the first navigation. A per-request context means:
+
+- **Rapid taps** — previous call cancelled, new one starts cleanly
+- **Navigation away** — current call cancelled, no stale `UserLoaded` emitted after dispose
+- **Navigation back** — `BlocProvider` creates a fresh cubit with a fresh context, no leftover state
+
 ## Testing
 
 ```dart
