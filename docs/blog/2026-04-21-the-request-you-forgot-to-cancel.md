@@ -5,188 +5,146 @@ authors: [anirudh_singh]
 tags: [dart, flutter, http, cancellation, dio, best-practices]
 ---
 
-You open an app. You tap on a product. The detail screen starts loading. You change your mind and go back. Half a second later, the app fetches the full product data anyway, parses it, and tries to update a screen that no longer exists.
+You open a product detail screen. The app fires a request to load the data. You change your mind and swipe back. Flutter pops the route, disposes the widget, closes the cubit. Everything on the Flutter side cleaned up correctly.
 
-Nobody notices. The user didn't notice. You probably didn't notice. But something real happened: a network socket stayed open a little longer than it needed to, a server processed a request nobody was waiting for, and a widget tried to call `setState` after it was disposed — which, if you're lucky, Dart caught and printed a warning about.
+But out on the internet, a request is still running.
 
-This is the in-flight request problem. It's quiet, it's common, and most apps ship with it every single day.
+The server received it. It's querying the database, serializing JSON, preparing a response. Nobody is waiting for that response anymore — the screen is gone, the cubit is gone, the state is gone. But the server doesn't know that. So it finishes the work anyway, sends the bytes back, and your app quietly receives them, parses them, and throws them away.
+
+This is the part that always gets missed.
 
 <!--truncate-->
 
-## Why it actually matters
+## The cleanup that didn't happen
 
-The obvious case is wasted bandwidth. If a user navigates away mid-download, you're transferring data that will immediately be thrown away. On a mobile connection, that's real cost — both in data and in battery.
+Most Flutter developers have dealt with the `setState() called after dispose()` warning at some point. It's annoying, but the fix is well understood — and if you're using a state management library like `flutter_bloc`, it's largely handled for you. When the screen is popped, `BlocProvider` calls `cubit.close()`, the stream closes, and any subsequent emits are silently dropped. The widget side is clean.
 
-But the subtler issue is state. Async callbacks don't know that the world has moved on. If your response handler runs after the screen that triggered it has been disposed, you get the classic Flutter warning:
+What's not handled is the network layer. `cubit.close()` doesn't reach down into the HTTP client and say "stop, we don't need this anymore." The request that was in-flight keeps going, completely unaware that its requester has moved on.
 
-```
-setState() called after dispose()
-```
+This is worth sitting with for a moment: your app correctly managed all of its local state. Nothing crashed. No stale data appeared on screen. From Flutter's perspective, everything worked. But a real network connection was kept open, a real server spent real CPU cycles on work that produced nothing useful, and real bytes traveled across the network that were immediately discarded.
 
-Or worse — no warning at all. The data lands in your bloc/cubit/provider, triggers a rebuild, and shows stale information for a split second before the current screen overwrites it. Users rarely notice. Crash reporters never catch it. It just quietly degrades the experience.
+At the scale of a single user tapping around your app, this is a minor inefficiency. At the scale of thousands of users, it starts to matter.
 
-And then there's the resource side. Every open socket is a file descriptor. Every pending response holds memory. On a low-end device with a slow connection, a user who taps around rapidly can stack up several in-flight requests, all racing to update UI that's already moved on.
+## The scenario that makes it visible
 
-The fix isn't complicated. The hard part is remembering that the problem exists.
+Imagine a search screen. Every time the user types a character, you fire a request. The user types "flutter" — that's seven keystrokes, seven requests. They type at a reasonable pace, maybe 150ms between characters, but your API takes 300ms to respond. By the time the final request for "flutter" comes back, the requests for "f", "fl", "flu", "flut", "flutt", and "flutte" are all still in flight. Six requests nobody cares about anymore. Six server roundtrips happening in parallel for no reason.
 
-## Rolling your own cancellation
+Or a feed screen. The user pulls to refresh, then immediately switches to another tab. The refresh request runs to completion, fetches a full page of data, and delivers it to a cubit that no longer exists.
 
-The first instinct is to track it yourself. Keep a flag. Check the flag before doing anything in the callback.
+The Flutter side handled both of these correctly. The waste happened at the network level.
 
-```dart
-class UserScreen extends StatefulWidget { ... }
+## The fix is in the HTTP layer
 
-class _UserScreenState extends State<UserScreen> {
-  bool _mounted = true;
-  User? _user;
+The solution is actual request cancellation — telling the HTTP client to abort the connection, not just ignoring the response when it arrives.
 
-  @override
-  void initState() {
-    super.initState();
-    _loadUser();
-  }
-
-  Future<void> _loadUser() async {
-    final user = await api.getUser(widget.id); // still running after pop
-    if (!_mounted) return;                      // check before setState
-    setState(() => _user = user);
-  }
-
-  @override
-  void dispose() {
-    _mounted = false;
-    super.dispose();
-  }
-}
-```
-
-This stops the `setState` crash. It doesn't stop the request. The network call runs to completion — you just ignore the result. That's better than crashing, but it's not cancellation.
-
-The real problem shows up when you need to actually abort the work: stop the download, release the connection, free the memory. A boolean flag can't do that.
-
-You need something that reaches into the HTTP layer.
-
-## Cancellation at the HTTP layer
-
-If you're using Dio, this is already built in. Dio has a `CancelToken` class — you pass one when making a request, and if you cancel it later, Dio closes the socket.
+Dio has this built in. You create a `CancelToken`, pass it with the request, and call `cancel()` on it when you no longer need the result. Dio closes the socket.
 
 ```dart
-class UserCubit extends Cubit<UserState> {
+class FeedCubit extends Cubit<FeedState> {
   CancelToken? _cancelToken;
 
-  Future<void> loadUser(int id) async {
-    _cancelToken?.cancel('New request started');
+  Future<void> refresh() async {
+    // Cancel whatever was already running
+    _cancelToken?.cancel();
     _cancelToken = CancelToken();
 
-    emit(UserLoading());
+    emit(FeedLoading());
     try {
       final response = await dio.get(
-        '/users/$id',
+        '/feed',
         cancelToken: _cancelToken,
       );
-      emit(UserLoaded(User.fromJson(response.data)));
+      emit(FeedLoaded(response.data));
     } on DioException catch (e) {
-      if (e.type == DioExceptionType.cancel) return; // expected, ignore
-      emit(UserError(e.message ?? 'Failed'));
+      if (e.type == DioExceptionType.cancel) return;
+      emit(FeedError(e.message ?? 'Failed'));
     }
   }
 
   @override
   Future<void> close() {
-    _cancelToken?.cancel('Screen disposed');
+    _cancelToken?.cancel(); // abort when screen is disposed
     return super.close();
   }
 }
 ```
 
-This is the right shape. When the cubit closes — which Flutter does automatically when the screen is popped — the token fires, Dio shuts down the connection, and nothing tries to update dead state.
+Now when `BlocProvider` closes the cubit, the token fires, and Dio actually closes the connection. The server stops receiving the request mid-stream (or if it already sent the response, the TCP connection is dropped before your app reads it). Either way, you've stopped pretending the work was needed.
 
-For a single cubit making a single request, this works well. But real apps aren't single cubits making single requests.
+## Where the manual approach gets noisy
 
-## Where it starts to get messy
-
-Say your screen makes three requests in parallel — user profile, recent activity, and notification count. Now you need three tokens:
+For a cubit making a single request, one `CancelToken` field is manageable. But add a few more requests and the bookkeeping grows:
 
 ```dart
-CancelToken? _profileToken;
-CancelToken? _activityToken;
-CancelToken? _notificationToken;
-```
+CancelToken? _feedToken;
+CancelToken? _userToken;
+CancelToken? _notificationsToken;
 
-And in `close()`:
-
-```dart
 @override
 Future<void> close() {
-  _profileToken?.cancel();
-  _activityToken?.cancel();
-  _notificationToken?.cancel();
+  _feedToken?.cancel();
+  _userToken?.cancel();
+  _notificationsToken?.cancel();
   return super.close();
 }
 ```
 
-And if you add retry logic — which you probably should, for transient failures — you need to make sure you're not retrying a request that was *intentionally* cancelled. Retrying a cancellation defeats the entire point:
+Then add retry logic — and you need to make sure you're not retrying a request that was *intentionally* cancelled, because that would immediately undo the cancellation:
 
 ```dart
-RetryStrategyOptions(
-  shouldHandle: PredicateBuilder()
-      .handleOutcome((outcome) {
-        if (outcome.exception is DioException &&
-            (outcome.exception as DioException).type == DioExceptionType.cancel) {
-          return false; // don't retry cancellations
-        }
-        return outcome.hasException;
-      })
-      .build(),
-)
+shouldHandle: (outcome) {
+  if (outcome.exception is DioException &&
+      (outcome.exception as DioException).type == DioExceptionType.cancel) {
+    return false; // don't retry a cancellation
+  }
+  return outcome.hasException;
+}
 ```
 
-And if you add a timeout on top of retry, you need to make sure the timeout fires the same cancellation path, not a different one. Now your cancellation logic is spread across token declarations, `close()`, retry predicates, and timeout handlers. It still works — but it's a lot of plumbing to get right and easy to miss in code review.
+And if you stack a timeout on top of retry, you need that same check in the timeout path too, and now the cancellation logic is scattered across token declarations, `close()` overrides, retry predicates, and timeout handlers.
 
-## The part where I mention my library
+It still works. It's just a lot of plumbing to carry around.
 
-So I built an extension to handle this. It's called `polly_dart_dio`.
+## The shameless part
 
-The idea is simple: `polly_dart` already has a `CancellationToken` that the whole resilience pipeline (timeout, retry, hedging) operates on. When anything in the pipeline decides the operation should be cancelled — timeout fires, hedging finds a winner, you call `cancel()` manually — that one token knows about it. The extension just connects that token to Dio's `CancelToken` with a single method call:
+`polly_dart_dio` is an extension I built that connects Dio's `CancelToken` to `polly_dart`'s resilience pipeline. The pipeline already has a `CancellationToken` that all strategies (timeout, retry, hedging) share. One method call bridges it to Dio:
 
 ```dart
 cancelToken: context.cancellationToken.toDioCancelToken()
 ```
 
-That's it. From there, the pipeline's cancellation signal reaches Dio's socket layer automatically.
-
-The cubit pattern from before becomes:
+The cubit pattern becomes:
 
 ```dart
-class UserCubit extends Cubit<UserState> {
+class FeedCubit extends Cubit<FeedState> {
   final ResiliencePipeline _pipeline;
   ResilienceContext? _activeContext;
 
-  UserCubit(this._pipeline) : super(UserInitial());
+  FeedCubit(this._pipeline) : super(FeedInitial());
 
-  Future<void> loadUser(int id) async {
+  Future<void> refresh() async {
     _activeContext?.cancel();
     final context = ResilienceContext();
     _activeContext = context;
 
-    emit(UserLoading());
+    emit(FeedLoading());
     try {
-      final user = await _pipeline.execute(
+      final data = await _pipeline.execute(
         (ctx) async {
           final response = await dio.get(
-            '/users/$id',
+            '/feed',
             cancelToken: ctx.cancellationToken.toDioCancelToken(),
           );
-          return User.fromJson(response.data);
+          return response.data;
         },
         context: context,
       );
-      emit(UserLoaded(user));
+      emit(FeedLoaded(data));
     } on DioException catch (e) {
       if (e.type == DioExceptionType.cancel) return;
-      emit(UserError(e.message ?? 'Failed'));
+      emit(FeedError(e.message ?? 'Failed'));
     } on TimeoutRejectedException {
-      emit(UserError('Request timed out'));
+      emit(FeedError('Request timed out'));
     }
   }
 
@@ -198,28 +156,25 @@ class UserCubit extends Cubit<UserState> {
 }
 ```
 
-The difference here is that one context covers everything the pipeline does. If you have retry, timeout, and circuit breaker stacked together, they all share the same cancellation signal. Parallel requests just each get their own `toDioCancelToken()` call — they're all linked to the same token, so one `cancel()` takes down all of them:
+One context. One `cancel()` call in `close()`. All parallel requests just get their own `toDioCancelToken()` call — they're all linked to the same token, so one `cancel()` takes down every open connection:
 
 ```dart
-final results = await Future.wait([
-  dio.get('/users',    cancelToken: token.toDioCancelToken()),
-  dio.get('/posts',    cancelToken: token.toDioCancelToken()),
-  dio.get('/comments', cancelToken: token.toDioCancelToken()),
+await Future.wait([
+  dio.get('/feed',          cancelToken: token.toDioCancelToken()),
+  dio.get('/notifications', cancelToken: token.toDioCancelToken()),
 ]);
 ```
 
-And if you're using Retrofit (which wraps Dio), add `@CancelRequest() CancelToken? cancelToken` to your endpoint method and pass `ctx.cancellationToken.toDioCancelToken()` — the generated client handles the rest.
+If you use Retrofit, add `@CancelRequest() CancelToken? cancelToken` to the endpoint and pass `ctx.cancellationToken.toDioCancelToken()`. That's the full integration.
 
-## The point
+## The thing worth remembering
 
-In-flight request cancellation is the kind of thing that feels optional until it isn't. It doesn't cause crashes in most cases. It doesn't show up in your error tracker. It just quietly wastes resources and occasionally produces a weird flicker in your UI that nobody can reproduce consistently.
+Flutter handles the UI lifecycle really well. Cubits, providers, and `dispose()` take care of local state so cleanly that it's easy to feel like the cleanup is done when it isn't. The network layer is one step further out, and nothing in the framework reaches that far automatically.
 
-The good news is that Dio already has everything you need at the HTTP level. The wiring is the tedious part. Whether you do it manually with `CancelToken` directly, or use an abstraction that connects your pipeline's lifecycle to the socket, the important thing is doing it at all.
+The request you fired before the user swiped back is still out there. The server is finishing the work. The bytes are coming back. Your app is going to receive them.
 
-Because somewhere in your app right now, there's a request running for a screen the user already left. It's going to finish. It's going to try to do something with the result. And nobody is going to notice.
-
-Until they do.
+The only question is whether you planned for that.
 
 ---
 
-`polly_dart_dio` is available on pub.dev. If you're using `package:http` rather than Dio, there's `polly_dart_http` which covers the same ground for that client. Both are extensions to [polly_dart](https://pub.dev/packages/polly_dart) — a resilience pipeline library for Dart and Flutter.
+`polly_dart_dio` is available on [pub.dev](https://pub.dev/packages/polly_dart_dio). If you're using `package:http` rather than Dio, [`polly_dart_http`](https://pub.dev/packages/polly_dart_http) covers the same ground for that client. Both are extensions to [polly_dart](https://pub.dev/packages/polly_dart) — a resilience pipeline library for Dart and Flutter.
