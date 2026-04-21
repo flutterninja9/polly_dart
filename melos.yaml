@@ -1,0 +1,23 @@
+name: polly_dart_workspace
+
+packages:
+  - .
+  - extensions/*
+
+command:
+  bootstrap:
+    usePubspecOverrides: true
+
+scripts:
+  test:
+    description: Run tests in all packages
+    exec: dart test
+  analyze:
+    description: Analyze all packages
+    exec: dart analyze
+  format:
+    description: Format all packages
+    exec: dart format .
+  publish:check:
+    description: Dry-run publish check
+    exec: dart pub publish --dry-run
