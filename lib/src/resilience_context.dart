@@ -1,5 +1,9 @@
 import 'dart:async';
 
+import 'cancellation_token.dart';
+
+export 'cancellation_token.dart';
+
 /// Context that carries metadata through resilience pipeline execution.
 ///
 /// This context is used to track information such as attempt counts,
@@ -102,13 +106,3 @@ class ResilienceContext {
   }
 }
 
-/// Exception thrown when an operation is cancelled.
-class OperationCancelledException implements Exception {
-  final String message;
-
-  const OperationCancelledException(
-      [this.message = 'The operation was cancelled']);
-
-  @override
-  String toString() => 'OperationCancelledException: $message';
-}

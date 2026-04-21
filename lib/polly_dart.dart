@@ -30,6 +30,7 @@ export 'src/caching/cache_metrics.dart';
 export 'src/caching/cache_provider.dart';
 export 'src/caching/memory_cache_provider.dart';
 // Core types
+export 'src/cancellation_token.dart';
 export 'src/outcome.dart';
 export 'src/resilience_context.dart';
 export 'src/resilience_pipeline.dart';
