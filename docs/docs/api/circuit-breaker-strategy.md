@@ -252,38 +252,54 @@ typedef ShouldHandlePredicate<T> = bool Function(Outcome<T> outcome);
 
 Determines whether an outcome counts as a failure for the circuit breaker.
 
-### OnCircuitBreakerOpenedCallback&lt;T&gt;
+### OnCircuitOpened&lt;T&gt;
 
 ```dart
-typedef OnCircuitBreakerOpenedCallback<T> = void Function(
-  ResilienceContext context,
-  OnCircuitBreakerOpenedArgs args,
-);
+typedef OnCircuitOpened<T> = Future<void> Function(OnCircuitOpenedArguments<T> args);
 ```
 
 Called when the circuit breaker opens due to excessive failures.
 
-### OnCircuitBreakerClosedCallback&lt;T&gt;
+**OnCircuitOpenedArguments properties:**
+- `previousState` — the state before opening
+- `context` — the resilience context
+- `breakDuration` — how long the circuit will stay open
+- `outcome` — the `Outcome<T>` that triggered the open (`null` when opened via manual isolation)
+- `isManual` — `true` when the circuit was opened via `CircuitBreakerManualControl.isolateAsync`
+
+### OnCircuitClosed&lt;T&gt;
 
 ```dart
-typedef OnCircuitBreakerClosedCallback<T> = void Function(
-  ResilienceContext context,
-  OnCircuitBreakerClosedArgs args,
-);
+typedef OnCircuitClosed<T> = Future<void> Function(OnCircuitClosedArguments<T> args);
 ```
 
 Called when the circuit breaker closes after successful recovery.
 
-### OnCircuitBreakerHalfOpenedCallback&lt;T&gt;
+**OnCircuitClosedArguments properties:**
+- `previousState` — the state before closing
+- `context` — the resilience context
+- `isManual` — `true` when the circuit was closed via `CircuitBreakerManualControl.closeAsync`
+
+### OnCircuitHalfOpened&lt;T&gt;
 
 ```dart
-typedef OnCircuitBreakerHalfOpenedCallback<T> = void Function(
-  ResilienceContext context,
-  OnCircuitBreakerHalfOpenedArgs args,
-);
+typedef OnCircuitHalfOpened<T> = Future<void> Function(OnCircuitHalfOpenedArguments<T> args);
 ```
 
 Called when the circuit breaker transitions to half-open state.
+
+### BreakDurationGenerator&lt;T&gt;
+
+```dart
+typedef BreakDurationGenerator<T> = Future<Duration> Function(
+  BreakDurationGeneratorArguments<T> args,
+);
+```
+
+Provides dynamic break durations. **BreakDurationGeneratorArguments properties:**
+- `failureCount` — total failures recorded so far
+- `context` — the resilience context
+- `outcome` — the `Outcome<T>` that triggered the open, allowing different durations based on the specific error
 
 ## Usage Examples
 
@@ -352,23 +368,36 @@ final circuitBreaker = CircuitBreakerStrategy(CircuitBreakerStrategyOptions(
 final circuitBreaker = CircuitBreakerStrategy(CircuitBreakerStrategyOptions(
   failureRatio: 0.5,
   minimumThroughput: 10,
-  onOpened: (context, args) {
-    logger.error('Circuit breaker OPENED - Failure rate: ${args.failureRate}');
+  onOpened: (args) async {
+    // args.outcome tells you exactly what caused the open
+    final cause = args.outcome?.tryGetException() ?? 'manual isolation';
+    logger.error('Circuit breaker OPENED — cause: $cause, break: ${args.breakDuration}');
     metrics.incrementCounter('circuit_breaker_opened');
-    
-    // Alert operations team
-    alertingService.sendAlert(
-      'Circuit breaker opened for ${context.getProperty("service")}',
-      severity: AlertSeverity.high,
-    );
   },
-  onClosed: (context, args) {
-    logger.info('Circuit breaker CLOSED - Service recovered');
+  onClosed: (args) async {
+    final how = args.isManual ? 'manually' : 'automatically';
+    logger.info('Circuit breaker CLOSED $how');
     metrics.incrementCounter('circuit_breaker_closed');
   },
-  onHalfOpened: (context, args) {
-    logger.info('Circuit breaker HALF-OPEN - Testing recovery');
+  onHalfOpened: (args) async {
+    logger.info('Circuit breaker HALF-OPEN — testing recovery');
     metrics.incrementCounter('circuit_breaker_half_opened');
+  },
+));
+```
+
+### Dynamic Break Duration Based on Error Type
+
+```dart
+final circuitBreaker = CircuitBreakerStrategy(CircuitBreakerStrategyOptions(
+  failureRatio: 0.5,
+  minimumThroughput: 10,
+  breakDurationGenerator: (args) async {
+    // Use a longer break for server overload errors
+    if (args.outcome?.tryGetException() is ServiceUnavailableException) {
+      return Duration(minutes: 5);
+    }
+    return Duration(seconds: 30);
   },
 ));
 ```

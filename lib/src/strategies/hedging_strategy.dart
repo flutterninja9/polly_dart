@@ -55,9 +55,15 @@ class HedgingDelayGeneratorArguments<T> {
   /// The resilience context.
   final ResilienceContext context;
 
+  /// The outcome of the primary attempt if it already completed with a
+  /// handled result before this hedge was triggered. Null when the hedge is
+  /// fired speculatively (primary is still in-flight).
+  final Outcome<T>? primaryOutcome;
+
   const HedgingDelayGeneratorArguments({
     required this.attemptNumber,
     required this.context,
+    this.primaryOutcome,
   });
 }
 
@@ -87,9 +93,15 @@ class OnHedgingArguments<T> {
   /// The resilience context.
   final ResilienceContext context;
 
+  /// The outcome of the primary attempt if it already completed with a
+  /// handled result before this hedge was triggered. Null when the hedge is
+  /// fired speculatively (primary is still in-flight).
+  final Outcome<T>? outcome;
+
   const OnHedgingArguments({
     required this.attemptNumber,
     required this.context,
+    this.outcome,
   });
 }
 

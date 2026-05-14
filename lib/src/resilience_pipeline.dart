@@ -11,6 +11,11 @@ import 'strategy.dart';
 class ResiliencePipeline {
   final List<ResilienceStrategy> _strategies;
 
+  /// A pre-built empty pipeline that executes callbacks directly with no resilience wrapping.
+  ///
+  /// Useful as a default/no-op value in dependency injection or optional pipeline fields.
+  static final ResiliencePipeline empty = ResiliencePipeline(const []);
+
   /// Creates a resilience pipeline with the given strategies.
   const ResiliencePipeline(this._strategies);
 

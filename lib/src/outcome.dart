@@ -43,6 +43,31 @@ sealed class Outcome<T> {
     }
   }
 
+  /// Returns the result if successful, or null if this outcome represents an exception.
+  T? tryGetResult() => hasResult ? result : null;
+
+  /// Returns the exception if this outcome represents one, or null if successful.
+  Object? tryGetException() => hasException ? exception : null;
+
+  /// Matches this outcome and calls the appropriate handler, returning its result.
+  ///
+  /// ```dart
+  /// final text = outcome.when(
+  ///   onResult: (value) => 'Got: $value',
+  ///   onException: (e, _) => 'Error: $e',
+  /// );
+  /// ```
+  R when<R>({
+    required R Function(T result) onResult,
+    required R Function(Object exception, StackTrace? stackTrace) onException,
+  }) {
+    if (hasResult) {
+      return onResult(result);
+    } else {
+      return onException(exception, stackTrace);
+    }
+  }
+
   /// Converts this outcome to a ValueTask-like representation.
   static Future<Outcome<T>> fromFuture<T>(Future<T> future) async {
     try {

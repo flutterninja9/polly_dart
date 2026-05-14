@@ -103,10 +103,12 @@ RetryStrategyOptions(backoffType: DelayBackoffType.linear)
 
 ### useJitter
 
-Whether to add jitter to the delay to prevent thundering herd.
+Whether to add jitter to the delay to prevent thundering herd problems when many clients retry simultaneously.
 
 **Type:** `bool`  
 **Default:** `false`
+
+When enabled, the calculated delay is multiplied by a random factor in **[0.5, 1.5)**, so the final delay stays close to the intended base while breaking synchronisation between retrying clients.
 
 ```dart
 RetryStrategyOptions(useJitter: true)

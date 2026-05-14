@@ -49,6 +49,23 @@ class PredicateBuilder<T> {
     return this;
   }
 
+  /// Adds a predicate that handles exceptions of a specific type matching a condition.
+  ///
+  /// ```dart
+  /// PredicateBuilder<String>()
+  ///   .handleWhen<HttpException>((e) => e.statusCode >= 500)
+  /// ```
+  PredicateBuilder<T> handleWhen<TException extends Object>(
+    bool Function(TException exception) predicate,
+  ) {
+    _predicates.add((outcome) {
+      return outcome.hasException &&
+          outcome.exception is TException &&
+          predicate(outcome.exception as TException);
+    });
+    return this;
+  }
+
   /// Adds a custom predicate.
   PredicateBuilder<T> handleOutcome(ShouldHandlePredicate<T> predicate) {
     _predicates.add(predicate);

@@ -240,15 +240,19 @@ class RetryStrategy extends ResilienceStrategy {
         break;
     }
 
+    // Add jitter before clamping so the max cap is still respected.
+    // Decorrelated jitter matches .NET Polly: delay * (1 + random ∈ [−0.5, 0.5))
+    // giving a final delay in the range [50 %, 150 %] of the calculated base.
+    if (_options.useJitter && baseDelay > Duration.zero) {
+      final jitterFactor = 1.0 + (_random.nextDouble() - 0.5);
+      baseDelay = Duration(
+        milliseconds: (baseDelay.inMilliseconds * jitterFactor).round(),
+      );
+    }
+
     // Apply maximum delay limit
     if (baseDelay > _options.maxDelay) {
       baseDelay = _options.maxDelay;
-    }
-
-    // Add jitter if enabled
-    if (_options.useJitter && baseDelay > Duration.zero) {
-      final jitterMs = _random.nextInt(baseDelay.inMilliseconds);
-      baseDelay = Duration(milliseconds: jitterMs);
     }
 
     return baseDelay;

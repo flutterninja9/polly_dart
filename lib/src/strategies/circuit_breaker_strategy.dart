@@ -63,9 +63,16 @@ class BreakDurationGeneratorArguments<T> {
   /// The resilience context.
   final ResilienceContext context;
 
+  /// The outcome that triggered the circuit to open.
+  ///
+  /// Allows computing a different break duration based on the specific error,
+  /// e.g. a longer break for a 503 than a 500.
+  final Outcome<T>? outcome;
+
   const BreakDurationGeneratorArguments({
     required this.failureCount,
     required this.context,
+    this.outcome,
   });
 }
 
@@ -83,10 +90,20 @@ class OnCircuitOpenedArguments<T> {
   final ResilienceContext context;
   final Duration breakDuration;
 
+  /// The outcome that caused the circuit to open, if triggered automatically.
+  ///
+  /// Null when the circuit was opened via [CircuitBreakerManualControl.isolateAsync].
+  final Outcome<T>? outcome;
+
+  /// Whether the circuit was opened manually via [CircuitBreakerManualControl.isolateAsync].
+  final bool isManual;
+
   const OnCircuitOpenedArguments({
     required this.previousState,
     required this.context,
     required this.breakDuration,
+    this.outcome,
+    this.isManual = false,
   });
 }
 
@@ -94,9 +111,13 @@ class OnCircuitClosedArguments<T> {
   final CircuitState previousState;
   final ResilienceContext context;
 
+  /// Whether the circuit was closed manually via [CircuitBreakerManualControl.closeAsync].
+  final bool isManual;
+
   const OnCircuitClosedArguments({
     required this.previousState,
     required this.context,
+    this.isManual = false,
   });
 }
 
@@ -276,7 +297,7 @@ class CircuitBreakerStrategy extends ResilienceStrategy {
     }
 
     // Update circuit state based on the result
-    await _updateCircuitStateAfterExecution(context, isSuccess);
+    await _updateCircuitStateAfterExecution<T>(context, isSuccess, outcome);
 
     return outcome;
   }
@@ -289,17 +310,17 @@ class CircuitBreakerStrategy extends ResilienceStrategy {
     }
   }
 
-  Future<void> _updateCircuitStateAfterExecution(
-      ResilienceContext context, bool isSuccess) async {
+  Future<void> _updateCircuitStateAfterExecution<T>(
+      ResilienceContext context, bool isSuccess, Outcome<T> outcome) async {
     if (_state == CircuitState.halfOpen) {
       if (isSuccess) {
         await _transitionToClosed(context);
       } else {
-        await _transitionToOpen(context);
+        await _transitionToOpen<T>(context, outcome);
       }
     } else if (_state == CircuitState.closed) {
       if (_shouldOpen()) {
-        await _transitionToOpen(context);
+        await _transitionToOpen<T>(context, outcome);
       }
     }
   }
@@ -309,19 +330,21 @@ class CircuitBreakerStrategy extends ResilienceStrategy {
         _stats.failureRatio >= _options.failureRatio;
   }
 
-  Future<void> _transitionToOpen(ResilienceContext context) async {
+  Future<void> _transitionToOpen<T>(
+      ResilienceContext context, Outcome<T>? triggeringOutcome,
+      {bool isManual = false}) async {
     final previousState = _state;
     _setState(CircuitState.open);
 
     // Calculate break duration
     Duration breakDuration;
     if (_options.breakDurationGenerator != null) {
-      breakDuration = await (_options.breakDurationGenerator!)(
-        BreakDurationGeneratorArguments(
-          failureCount: _failureCount,
-          context: context,
-        ),
-      );
+      breakDuration = await (_options.breakDurationGenerator!
+          as BreakDurationGenerator<T>)(BreakDurationGeneratorArguments<T>(
+        failureCount: _failureCount,
+        context: context,
+        outcome: triggeringOutcome,
+      ));
     } else {
       breakDuration = _options.breakDuration;
     }
@@ -330,15 +353,19 @@ class CircuitBreakerStrategy extends ResilienceStrategy {
 
     // Invoke callback
     if (_options.onOpened != null) {
-      await (_options.onOpened!)(OnCircuitOpenedArguments(
+      await (_options.onOpened! as OnCircuitOpened<T>)(
+          OnCircuitOpenedArguments<T>(
         previousState: previousState,
         context: context,
         breakDuration: breakDuration,
+        outcome: triggeringOutcome,
+        isManual: isManual,
       ));
     }
   }
 
-  Future<void> _transitionToClosed(ResilienceContext context) async {
+  Future<void> _transitionToClosed(ResilienceContext context,
+      {bool isManual = false}) async {
     final previousState = _state;
     _setState(CircuitState.closed);
     _resetStats();
@@ -348,6 +375,7 @@ class CircuitBreakerStrategy extends ResilienceStrategy {
       await (_options.onClosed!)(OnCircuitClosedArguments(
         previousState: previousState,
         context: context,
+        isManual: isManual,
       ));
     }
   }

@@ -92,9 +92,14 @@ class OnRateLimiterRejectedArguments {
   /// The reason for rejection.
   final String reason;
 
+  /// Suggested duration to wait before retrying, if the rate limiter can
+  /// determine it. Null for concurrency limiters or when unknown.
+  final Duration? retryAfter;
+
   const OnRateLimiterRejectedArguments({
     required this.context,
     required this.reason,
+    this.retryAfter,
   });
 }
 
@@ -103,18 +108,32 @@ class RateLimiterRejectedException implements Exception {
   final String message;
   final String reason;
 
-  const RateLimiterRejectedException(this.reason,
-      [this.message = 'Rate limiter rejected the execution']);
+  /// Suggested duration to wait before retrying, if the rate limiter can
+  /// determine it. Null for concurrency limiters or when unknown.
+  final Duration? retryAfter;
+
+  const RateLimiterRejectedException(
+    this.reason, {
+    this.retryAfter,
+    this.message = 'Rate limiter rejected the execution',
+  });
 
   @override
-  String toString() =>
-      'RateLimiterRejectedException: $message (reason: $reason)';
+  String toString() {
+    final retryPart =
+        retryAfter != null ? ', retry after: $retryAfter' : '';
+    return 'RateLimiterRejectedException: $message (reason: $reason$retryPart)';
+  }
 }
 
 /// Base interface for rate limiter implementations.
 abstract class _RateLimiter {
   Future<bool> tryAcquirePermit(ResilienceContext context);
   void releasePermit();
+
+  /// Returns the suggested wait duration after a failed [tryAcquirePermit],
+  /// or null when the limiter cannot determine a concrete retry time.
+  Duration? get retryAfter;
 }
 
 /// Token bucket rate limiter implementation.
@@ -125,6 +144,7 @@ class _TokenBucketRateLimiter implements _RateLimiter {
 
   int _availableTokens;
   DateTime _lastRefill;
+  Duration? _retryAfter;
 
   _TokenBucketRateLimiter(
       this._permitLimit, this._window, this._segmentsPerWindow)
@@ -137,9 +157,15 @@ class _TokenBucketRateLimiter implements _RateLimiter {
 
     if (_availableTokens > 0) {
       _availableTokens--;
+      _retryAfter = null;
       return true;
     }
 
+    final segmentDuration =
+        Duration(milliseconds: _window.inMilliseconds ~/ _segmentsPerWindow);
+    final timeSinceLastRefill = DateTime.now().difference(_lastRefill);
+    _retryAfter = segmentDuration - timeSinceLastRefill;
+    if (_retryAfter!.isNegative) _retryAfter = Duration.zero;
     return false;
   }
 
@@ -147,6 +173,9 @@ class _TokenBucketRateLimiter implements _RateLimiter {
   void releasePermit() {
     // Token bucket doesn't need to release permits
   }
+
+  @override
+  Duration? get retryAfter => _retryAfter;
 
   void _refillTokens() {
     final now = DateTime.now();
@@ -171,6 +200,7 @@ class _SlidingWindowRateLimiter implements _RateLimiter {
   final int _permitLimit;
   final Duration _window;
   final Queue<DateTime> _requests = Queue<DateTime>();
+  Duration? _retryAfter;
 
   _SlidingWindowRateLimiter(
       this._permitLimit, this._window, int segmentsPerWindow);
@@ -187,9 +217,13 @@ class _SlidingWindowRateLimiter implements _RateLimiter {
 
     if (_requests.length < _permitLimit) {
       _requests.addLast(now);
+      _retryAfter = null;
       return true;
     }
 
+    // Oldest request in the window expires at _requests.first + window
+    _retryAfter = _requests.first.add(_window).difference(now);
+    if (_retryAfter!.isNegative) _retryAfter = Duration.zero;
     return false;
   }
 
@@ -197,6 +231,9 @@ class _SlidingWindowRateLimiter implements _RateLimiter {
   void releasePermit() {
     // Sliding window doesn't need to release permits
   }
+
+  @override
+  Duration? get retryAfter => _retryAfter;
 }
 
 /// Fixed window rate limiter implementation.
@@ -206,6 +243,7 @@ class _FixedWindowRateLimiter implements _RateLimiter {
 
   int _currentCount = 0;
   DateTime _windowStart;
+  Duration? _retryAfter;
 
   _FixedWindowRateLimiter(this._permitLimit, this._window)
       : _windowStart = DateTime.now();
@@ -222,9 +260,12 @@ class _FixedWindowRateLimiter implements _RateLimiter {
 
     if (_currentCount < _permitLimit) {
       _currentCount++;
+      _retryAfter = null;
       return true;
     }
 
+    _retryAfter = _windowStart.add(_window).difference(now);
+    if (_retryAfter!.isNegative) _retryAfter = Duration.zero;
     return false;
   }
 
@@ -232,6 +273,9 @@ class _FixedWindowRateLimiter implements _RateLimiter {
   void releasePermit() {
     // Fixed window doesn't need to release permits
   }
+
+  @override
+  Duration? get retryAfter => _retryAfter;
 }
 
 /// Concurrency limiter (bulkhead) implementation.
@@ -288,6 +332,10 @@ class _ConcurrencyLimiter implements _RateLimiter {
       completer.complete(true);
     }
   }
+
+  /// Concurrency limiters cannot predict when a slot will free up.
+  @override
+  Duration? get retryAfter => null;
 }
 
 /// Rate limiter resilience strategy implementation.
@@ -336,17 +384,19 @@ class RateLimiterStrategy extends ResilienceStrategy {
 
     if (!permitAcquired) {
       final reason = _getRejectionReason();
+      final retryAfter = _rateLimiter.retryAfter;
 
       // Invoke rejection callback
       if (_options.onRejected != null) {
         await _options.onRejected!(OnRateLimiterRejectedArguments(
           context: context,
           reason: reason,
+          retryAfter: retryAfter,
         ));
       }
 
       return Outcome.fromException(
-        RateLimiterRejectedException(reason),
+        RateLimiterRejectedException(reason, retryAfter: retryAfter),
         StackTrace.current,
       );
     }

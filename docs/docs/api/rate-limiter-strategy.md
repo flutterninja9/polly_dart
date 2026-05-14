@@ -74,38 +74,63 @@ RateLimiterStrategyOptions(
 )
 ```
 
-### onRateLimitExceeded
+### onRejected
 
 Callback invoked when the rate limit is exceeded.
 
-**Type:** `OnRateLimitExceededCallback<T>?`  
+**Type:** `OnRateLimiterRejected?`  
 **Default:** `null`
 
 ```dart
-RateLimiterStrategyOptions(
+RateLimiterStrategyOptions.tokenBucket(
   permitLimit: 100,
-  onRateLimitExceeded: (context, args) {
-    logger.warn('Rate limit exceeded: ${args.retryAfter}');
+  window: Duration(minutes: 1),
+  onRejected: (args) async {
+    final wait = args.retryAfter;
+    if (wait != null) {
+      logger.warn('Rate limit exceeded — retry after $wait');
+    } else {
+      logger.warn('Rate limit exceeded — retry time unknown');
+    }
   },
 )
 ```
 
 ## Callback Types
 
-### OnRateLimitExceededCallback&lt;T&gt;
+### OnRateLimiterRejected
 
 ```dart
-typedef OnRateLimitExceededCallback<T> = void Function(
-  ResilienceContext context,
-  OnRateLimitExceededArgs args,
+typedef OnRateLimiterRejected = Future<void> Function(
+  OnRateLimiterRejectedArguments args,
 );
 ```
 
 Called when the rate limit is exceeded.
 
-**OnRateLimitExceededArgs Properties:**
-- `retryAfter` - Duration to wait before retrying
-- `currentCount` - Current number of operations in the window
+**OnRateLimiterRejectedArguments properties:**
+- `context` — the resilience context
+- `reason` — a human-readable rejection reason string
+- `retryAfter` — suggested `Duration` to wait before retrying; `null` for concurrency limiters or when the limiter cannot determine the next available slot
+
+## RateLimiterRejectedException
+
+Thrown (or returned as an `Outcome` exception) when a permit cannot be acquired.
+
+```dart
+try {
+  await pipeline.execute(operation);
+} on RateLimiterRejectedException catch (e) {
+  if (e.retryAfter != null) {
+    await Future.delayed(e.retryAfter!);
+    // retry
+  }
+}
+```
+
+**Properties:**
+- `reason` — human-readable rejection reason
+- `retryAfter` — `Duration?` — same hint as provided to the `onRejected` callback
 
 ## Usage Examples
 

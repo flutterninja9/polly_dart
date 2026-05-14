@@ -42,6 +42,22 @@ final pipeline = ResiliencePipeline(strategies);
 While you can create pipelines directly, it's recommended to use `ResiliencePipelineBuilder` for a more fluent API and better validation.
 :::
 
+## Static Fields
+
+### ResiliencePipeline.empty
+
+A pre-built, reusable no-op pipeline that executes callbacks directly without any resilience wrapping. Useful as a default value in optional-pipeline patterns and dependency injection scenarios.
+
+```dart
+// Optional pipeline with a safe default
+class ApiService {
+  final ResiliencePipeline pipeline;
+
+  ApiService({ResiliencePipeline? pipeline})
+      : pipeline = pipeline ?? ResiliencePipeline.empty;
+}
+```
+
 ## Methods
 
 ### execute&lt;T&gt;()
@@ -246,19 +262,28 @@ final outcome = await pipeline.executeAndCapture((context) async {
   return await riskyOperation();
 });
 
+// Option 1: exhaustive when() helper
+final message = outcome.when(
+  onResult: (value) => 'Success: $value',
+  onException: (e, _) => 'Failed: $e',
+);
+
+// Option 2: nullable helpers
+final value = outcome.tryGetResult();         // T? — null on failure
+final error = outcome.tryGetException();      // Object? — null on success
+
+// Option 3: Dart sealed-class switch
 switch (outcome) {
-  case ResultOutcome(result: final value):
+  case _ResultOutcome(result: final value):
     processResult(value);
-    break;
-  case ExceptionOutcome(exception: final error):
+  case _ExceptionOutcome(exception: final error):
     if (error is TimeoutRejectedException) {
       showTimeoutMessage();
-    } else if (error is CircuitBreakerOpenException) {
+    } else if (error is CircuitBreakerRejectedException) {
       showServiceUnavailableMessage();
     } else {
       showGenericErrorMessage();
     }
-    break;
 }
 ```
 

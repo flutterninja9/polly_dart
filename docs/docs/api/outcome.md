@@ -251,6 +251,45 @@ outcome
   .onFailure((error) => print('Error: $error'));
 ```
 
+### tryGetResult()
+
+Returns the result if the outcome is successful, or `null` without throwing.
+
+**Returns:** `T?`
+
+```dart
+final value = outcome.tryGetResult(); // null if failed
+if (value != null) {
+  processData(value);
+}
+```
+
+### tryGetException()
+
+Returns the exception if the outcome represents a failure, or `null` without throwing.
+
+**Returns:** `Object?`
+
+```dart
+final error = outcome.tryGetException(); // null if successful
+if (error is TimeoutRejectedException) {
+  showTimeoutMessage();
+}
+```
+
+### when&lt;R&gt;({required onResult, required onException})
+
+Exhaustive match — calls one of two handlers and returns its result. Eliminates `hasResult` checks and works well with Dart's type inference.
+
+**Returns:** `R`
+
+```dart
+final message = outcome.when(
+  onResult: (value) => 'Success: $value',
+  onException: (e, stackTrace) => 'Failed: $e',
+);
+```
+
 ## Usage Examples
 
 ### Basic Outcome Handling
